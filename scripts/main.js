@@ -324,7 +324,7 @@
                     sessionStorage.setItem('adminEmail', adminData.email);
                     adminLoginForm.reset();
                     setTimeout(() => {
-                        window.location.href = '../html/admin-dashboard.html';
+                        window.location.href = 'https://saugatpanta.github.io/html/admin-dashboard.html';
                     }, 1500);
                 } else {
                     showStatusMessage('Invalid admin credentials', 'error');
