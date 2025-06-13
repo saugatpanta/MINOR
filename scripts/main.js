@@ -324,7 +324,7 @@
                     sessionStorage.setItem('adminEmail', adminData.email);
                     adminLoginForm.reset();
                     setTimeout(() => {
-                        window.location.href = 'https://saugatpanta.github.io/html/admin-dashboard.html';
+                        window.location.href = 'https://saugatpanta.github.io/MINOR/html/admin-dashboard.html';
                     }, 1500);
                 } else {
                     showStatusMessage('Invalid admin credentials', 'error');
@@ -356,7 +356,7 @@
 
             if (currentUser || isAdmin) {
                 const role = isAdmin ? 'admin' : currentUser.role;
-                window.location.href = `../html/${role}-dashboard.html`;
+                window.location.href = `https://saugatpanta.github.io/MINOR/html/${role}-dashboard.html`;
             }
         })();
 
