@@ -9,10 +9,12 @@
     --accent: #2cb1bc;
     --accent-dark: #1d8a94;
     --light: #f0f4f8;
+    --light1:#f0f4f8;
     --dark: #102a43;
     --gray: #486581;
     --light-gray: #e4e7eb;
     --white: #ffffff;
+    --white1: #ffffff;
     --black: #000000;
     --success: #27ae60;
     --success-dark: #219653;
@@ -47,10 +49,12 @@
     --accent: #3bc9db;
     --accent-dark: #15aabf;
     --light: #121826;
+    --light1: #ffffff;
     --dark: #f8f9fa;
     --gray: #a0aec0;
     --light-gray: #2d3748;
     --white: #1a202c;
+    --white1: #ffffff;
     --black: #f8f9fa;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
     --shadow-md: 0 4px 6px rgba(0,0,0,0.25);
@@ -481,6 +485,8 @@ section {
     padding: 2.5rem;
     display: none;
     animation: fadeIn 0.4s ease-out;
+    max-height: 700px;
+    overflow: scroll;
 }
 
 @keyframes fadeIn {
@@ -685,7 +691,7 @@ section {
 }
 
 .dark-mode .hamburger span {
-    background: var(--light);
+    background: var(--light1);
 }
 
 .hamburger span:nth-child(1) {
@@ -725,6 +731,7 @@ section {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
 }
 
@@ -771,7 +778,7 @@ section {
     font-size: 0.95rem;
 }
 
-.dark-mode .navbar a {
+.dark-mode .navbar a li {
     color: var(--light);
 }
 
@@ -969,11 +976,11 @@ section {
 
 .section.dark {
     background: var(--primary-light1);
-    color: var(--white);
+    color: var(--white1);
 }
 
 .section.dark h2 {
-    color: var(--white);
+    color: var(--white1);
 }
 
 .section.dark h2::after {
@@ -1025,6 +1032,7 @@ section {
     color: var(--secondary);
     font-weight: 700;
 }
+
 
 .contact-form {
     max-width: 600px;
