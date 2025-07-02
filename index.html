@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <meta name="description" content="Premium aluminium architecture solutions - Pashupati Aluminium and Glass Center Pvt.Ltd" />
+    <!-- Google Fonts for clean typography -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Animate On Scroll library for scroll animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Pashupati Aluminium | Glass Center</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Pashupati Aluminium Logo" class="logo-img" />
+                Pashupati <span>Aluminium</span>
+            </div>
+            <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#projects">Projects</a>
+                <a href="#why">Why Us</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <button class="btn-primary admin-btn">Admin</button>
+                <button class="btn-outline login-btn">Login</button>
+                <button id="themeToggle" class="btn-outline" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Premium Aluminum Solutions</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Crafting Excellence in Modern Architecture Since 2005</p>
+                <div class="cta" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#products" class="btn-primary">Explore Products</a>
+                    <a href="#contact" class="btn-outline">Get Free Consultation</a>
+                </div>
+            </div>
+            <div class="hero-stats" data-aos="fade-left" data-aos-delay="600">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="18">0</span>+
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1200">0</span>+
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span>+
+                    <span class="stat-label">Countries Served</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p>Trusted by leading brands and architects</p>
+            <div class="brand-logos">
+                <img src="assets/brands/architectural-digest.png" alt="Architectural Digest" loading="lazy" />
+                <img src="assets/brands/autodesk.png" alt="Autodesk" loading="lazy" />
+                <img src="assets/brands/som.png" alt="Skidmore, Owings & Merrill" loading="lazy" />
+                <img src="assets/brands/foster.png" alt="Foster + Partners" loading="lazy" />
+                <img src="assets/brands/gensler.png" alt="Gensler" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section with dynamic JSON loading -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Our Premium Products</h2>
+            <p class="section-subtitle" data-aos="fade-right" data-aos-delay="100">Engineered for performance and aesthetics</p>
+            
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="windows">Windows</button>
+                <button class="category-btn" data-category="doors">Doors</button>
+                <button class="category-btn" data-category="facades">Facades</button>
+                <button class="category-btn" data-category="railings">Railings</button>
+            </div>
+            
+            <div class="product-grid" id="productContainer">
+                <!-- Products will be loaded dynamically from products.json -->
+            </div>
+            
+            <div class="view-more" data-aos="fade-up">
+                <button class="btn-outline" id="loadMoreProducts">View More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase Section -->
+    <section id="projects" class="section dark">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-left">Our Featured Projects</h2>
+            <p class="section-subtitle" data-aos="fade-left" data-aos-delay="100">Transforming visions into architectural reality</p>
+            
+            <div class="projects-slider">
+                <div class="project-slide" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Commercial High-Rise Project" loading="lazy" />
+                    <div class="project-info">
+                        <h3>Nepal Bank Headquarters</h3>
+                        <p>Kathmandu, Nepal</p>
+                        <div class="project-details">
+                            <span><i class="fas fa-ruler-combined"></i> 45,000 sq.ft</span>
+                            <span><i class="fas fa-calendar-alt"></i> Completed 2022</span>
+                        </div>
+                        <a href="#" class="btn-outline project-view-btn">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-slide" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Luxury Residential Project" loading="lazy" />
+                    <div class="project-info">
+                        <h3>Hyatt Regency</h3>
+                        <p>Pokhara, Nepal</p>
+                        <div class="project-details">
+                            <span><i class="fas fa-ruler-combined"></i> 32,000 sq.ft</span>
+                            <span><i class="fas fa-calendar-alt"></i> Completed 2021</span>
+                        </div>
+                        <a href="#" class="btn-outline project-view-btn">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-slide" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Institutional Project" loading="lazy" />
+                    <div class="project-info">
+                        <h3>Tribhuvan International Airport</h3>
+                        <p>Kathmandu, Nepal</p>
+                        <div class="project-details">
+                            <span><i class="fas fa-ruler-combined"></i> 68,000 sq.ft</span>
+                            <span><i class="fas fa-calendar-alt"></i> Completed 2023</span>
+                        </div>
+                        <a href="#" class="btn-outline project-view-btn">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-cta" data-aos="fade-up">
+                <a href="#" class="btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Why Choose Pashupati</h2>
+            <p class="section-subtitle" data-aos="fade-right" data-aos-delay="100">Excellence in every detail</p>
+            
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up">
+                    <div class="why-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>ISO 9001:2015 certified manufacturing with rigorous quality control at every stage.</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable Solutions</h3>
+                    <p>Eco-friendly materials with 95% recyclability and energy-efficient production.</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Advanced Technology</h3>
+                    <p>State-of-the-art CNC machines and BIM integration for precision engineering.</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Certified engineers and architects with 10+ years average experience.</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>Global Standards</h3>
+                    <p>Products meet ASTM, EN, and GB international standards for performance.</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Lifetime Support</h3>
+                    <p>Dedicated after-sales service and 10-year warranty on structural components.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section dark">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-left">Client Testimonials</h2>
+            <p class="section-subtitle" data-aos="fade-left" data-aos-delay="100">What our clients say about us</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card" data-aos="zoom-in">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Pashupati's aluminum solutions transformed our commercial complex. Their attention to detail and on-time delivery exceeded our expectations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ar. Ramesh Shrestha" loading="lazy" />
+                        <div>
+                            <h4>Ar. Ramesh Shrestha</h4>
+                            <p>Principal Architect, Design Forum</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The energy-efficient facade system reduced our building's cooling costs by 30%. Pashupati's technical expertise was invaluable throughout the project."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sita Gurung" loading="lazy" />
+                        <div>
+                            <h4>Sita Gurung</h4>
+                            <p>Project Manager, Urban Developers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Their custom aluminum railings perfectly complemented our luxury resort's aesthetic while meeting all safety standards. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Rajendra Thapa" loading="lazy" />
+                        <div>
+                            <h4>Rajendra Thapa</h4>
+                            <p>Owner, Himalayan Heights Resort</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Map -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Contact Us</h2>
+            <p class="section-subtitle" data-aos="fade-right" data-aos-delay="100">Get in touch for your next project</p>
+            
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Head Office</h3>
+                            <p>Pashupati Road, Gongabu<br>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+977-1-1234567<br>+977-9851020304 (Mobile)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@pashupatialuminium.com<br>sales@pashupatialuminium.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Sunday-Friday: 9AM - 6PM<br>Saturday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-map">
+                    <form class="contact-form" data-aos="fade-up" id="inquiryForm" action="/api/contact" method="POST">
+                        <input type="text" placeholder="Full Name" id="name" name="name" required />
+                        <input type="email" placeholder="Email Address" id="email" name="email" required />
+                        <input type="tel" placeholder="Phone Number" id="phone" name="phone" required />
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="product">Product Inquiry</option>
+                            <option value="quotation">Quotation Request</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea rows="5" placeholder="Your Project Requirements" id="message" name="message" required></textarea>
+                        <div class="form-footer">
+                            <button type="submit" class="btn-primary">Send Inquiry</button>
+                            <div class="file-upload">
+                                <label for="fileUpload">
+                                    <i class="fas fa-paperclip"></i> Attach Files
+                                </label>
+                                <input type="file" id="fileUpload" name="files" multiple />
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="contact-map" data-aos="fade-left" id="map">
+                        <!-- Map will be initialized with Leaflet JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on products, projects, and architectural trends.</p>
+            </div>
+            <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" id="newsletterForm">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Authentication -->
+    <section id="userAuthSection" class="auth-section">
+        <div class="auth-container">
+            <div class="auth-box">
+                <span class="close-btn" role="button" tabindex="0" aria-label="Close Authentication">&times;</span>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login" type="button">Login</button>
+                    <button class="auth-tab" data-tab="signup" type="button">Sign Up</button>
+                </div>
+
+                <div id="loginForm" class="auth-form active">
+                    <h3>Login to Your Account</h3>
+                    <form id="userLoginForm">
+                        <div class="form-group">
+                            <select id="loginRole" name="loginRole" required>
+                                <option value="">Select Role</option>
+                                <option value="client">Client</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="loginEmail" name="loginEmail" placeholder="Email Address" required />
+                        </div>
+                        <div class="form-group password-container">
+                            <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required />
+                            <button type="button" class="password-toggle" id="loginPasswordToggle">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#" id="showResetForm">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary">Login</button>
+                    </form>
+                    
+                    <div id="resetForm" class="reset-form">
+                        <h3>Reset Password</h3>
+                        <form id="passwordResetForm">
+                            <div class="form-group">
+                                <input type="email" id="resetEmail" placeholder="Your Email" required />
+                            </div>
+                            <div class="form-group" id="resetCodeField" style="display:none;">
+                                <input type="text" id="resetCode" placeholder="Reset Code (for admin/employee)" />
+                            </div>
+                            <div class="form-group password-container">
+                                <input type="password" id="newPassword" placeholder="New Password" required />
+                                <button type="button" class="password-toggle">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-group password-container">
+                                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required />
+                                <button type="button" class="password-toggle">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn-primary">Reset Password</button>
+                            <button type="button" id="cancelReset" class="btn-outline" style="margin-top: 10px;">Cancel</button>
+                        </form>
+                    </div>
+                    
+                    <p class="auth-switch">Don't have an account? <a href="#" data-tab="signup">Sign up</a></p>
+                </div>
+
+                <div id="signupForm" class="auth-form">
+                    <h3>Create New Account</h3>
+                    <form id="userSignupForm">
+                        <div class="form-group">
+                            <select id="signupRole" name="signupRole" required>
+                                <option value="">Select Role</option>
+                                <option value="client">Client</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="signupName" name="signupName" placeholder="Full Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="signupEmail" name="signupEmail" placeholder="Email Address" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="signupPhone" name="signupPhone" placeholder="Phone Number" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="signupAddress" name="signupAddress" placeholder="Address" required />
+                        </div>
+                        <div class="form-group password-container">
+                            <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required />
+                            <button type="button" class="password-toggle">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="form-group password-container">
+                            <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm Password" required />
+                            <button type="button" class="password-toggle">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div id="employeeCodeContainer" style="display:none;">
+                            <input type="text" id="employeeCode" name="employeeCode" placeholder="Employee Code (if applicable)" />
+                        </div>
+                        <button type="submit" class="btn-primary">Sign Up</button>
+                    </form>
+                    <p class="auth-switch">Already have an account? <a href="#" data-tab="login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="adminAuthSection" class="auth-section">
+        <div class="auth-container">
+            <div class="auth-box">
+                <span class="close-btn admin-close" role="button" tabindex="0" aria-label="Close Admin Authentication">&times;</span>
+                <div class="auth-form active">
+                    <h3>Admin Login</h3>
+                    <form id="adminLoginForm">
+                        <div class="form-group">
+                            <input type="email" id="adminEmail" name="adminEmail" placeholder="Admin Email" required />
+                        </div>
+                        <div class="form-group password-container">
+                            <input type="password" id="adminPassword" name="adminPassword" placeholder="Password" required />
+                            <button type="button" class="password-toggle">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#" id="showAdminResetForm">Reset Password</a>
+                        </div>
+                        <button type="submit" class="btn-primary">Login as Admin</button>
+                    </form>
+                    
+                    <div id="adminResetForm" class="reset-form">
+                        <h3>Admin Password Reset</h3>
+                        <form id="adminPasswordResetForm">
+                            <div class="form-group">
+                                <input type="email" id="adminResetEmail" placeholder="Admin Email" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="adminResetCode" placeholder="Security Code (Contact Super Admin)" required />
+                            </div>
+                            <div class="form-group password-container">
+                                <input type="password" id="adminNewPassword" placeholder="New Password" required />
+                                <button type="button" class="password-toggle">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-group password-container">
+                                <input type="password" id="adminConfirmNewPassword" placeholder="Confirm New Password" required />
+                                <button type="button" class="password-toggle">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn-primary">Reset Password</button>
+                            <button type="button" id="cancelAdminReset" class="btn-outline" style="margin-top: 10px;">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Message Popup -->
+    <div id="statusMessage" class="status-message" role="alert" aria-live="polite"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+    <!-- Quick Contact Floating Button -->
+    <div class="quick-contact">
+        <button class="quick-contact-btn" aria-label="Quick Contact">
+            <i class="fas fa-headset"></i>
+        </button>
+        <div class="quick-contact-options">
+            <a href="tel:+9779851020304" aria-label="Call Us">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/9779851020304" aria-label="WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:info@pashupatialuminium.com" aria-label="Email Us">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="assets/logo-white.svg" alt="Pashupati Aluminium Logo" class="logo-img" />
+                        Pashupati <span>Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminum solutions for modern architecture since 2005.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#why">Why Choose Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Aluminum Windows</a></li>
+                        <li><a href="#">Sliding Doors</a></li>
+                        <li><a href="#">Curtain Walls</a></li>
+                        <li><a href="#">Architectural Railings</a></li>
+                        <li><a href="#">Custom Fabrication</a></li>
+                        <li><a href="#">Glass Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Pashupati Road, Gongabu, Kathmandu</li>
+                        <li><i class="fas fa-phone-alt"></i> +977-1-1234567</li>
+                        <li><i class="fas fa-mobile-alt"></i> +977-9851020304</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium and Glass Center Pvt.Ltd. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- MongoDB Stitch SDK (for database connectivity) -->
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v4/stable/stitch.min.js"></script>
+    <!-- Main JavaScript File -->
+    <script src="scripts/main.js"></script>
+    
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
+</body>
+</html>
