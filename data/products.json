@@ -1,0 +1,366 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Premium Sliding Window",
+      "category": "Windows",
+      "price": 12500,
+      "image": "assets/images/products/window1.jpg",
+      "shortDescription": "Energy-efficient sliding window with thermal break technology",
+      "description": "Our premium sliding windows feature a thermal break design that significantly reduces heat transfer, making them ideal for both hot and cold climates. The durable aluminum frame is powder-coated for weather resistance and comes in various colors to match your architectural style.",
+      "badge": "Best Seller",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6063-T5"},
+        {"name": "Frame Width", "value": "80mm"},
+        {"name": "Glass Type", "value": "Double Glazed (6mm+12A+6mm)"},
+        {"name": "U-Value", "value": "1.8 W/m²K"},
+        {"name": "Wind Resistance", "value": "Class 4 (2400Pa)"},
+        {"name": "Water Tightness", "value": "Class 9A"},
+        {"name": "Finish", "value": "Powder Coated (RAL Colors)"},
+        {"name": "Warranty", "value": "10 years on frame"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bi-Fold Door System",
+      "category": "Doors",
+      "price": 28500,
+      "image": "assets/images/products/door1.jpg",
+      "shortDescription": "Smooth operating bi-fold doors for seamless indoor-outdoor living",
+      "description": "Transform your living space with our premium bi-fold door system that creates wide openings up to 6 meters. The multi-point locking system ensures security while the high-quality rollers provide smooth operation for years of trouble-free use.",
+      "badge": "New",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6063-T6"},
+        {"name": "Panel Width", "value": "100mm"},
+        {"name": "Max Opening Width", "value": "6000mm"},
+        {"name": "Glass Thickness", "value": "Up to 10mm tempered"},
+        {"name": "Locking Points", "value": "5-point locking system"},
+        {"name": "Finish", "value": "Anodized or Powder Coated"},
+        {"name": "Operation", "value": "Top-hung roller system"},
+        {"name": "Warranty", "value": "7 years"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Curtain Wall System",
+      "category": "Facades",
+      "price": 4200,
+      "image": "assets/images/products/facade1.jpg",
+      "shortDescription": "Structural glazing system for modern commercial buildings",
+      "description": "Our unitized curtain wall system offers exceptional thermal performance and weather resistance for high-rise buildings. The prefabricated units allow for faster installation while maintaining precise tolerances for a flawless facade appearance.",
+      "specs": [
+        {"name": "System Type", "value": "Unitized"},
+        {"name": "Frame Depth", "value": "50-150mm"},
+        {"name": "Span Capacity", "value": "Up to 1800mm"},
+        {"name": "Thermal Break", "value": "24mm polyamide"},
+        {"name": "Air Infiltration", "value": "Class 4"},
+        {"name": "Water Penetration", "value": "Class 5"},
+        {"name": "Structural Test", "value": "Passed 6000Pa"},
+        {"name": "Fire Rating", "value": "60 minutes"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Architectural Railing",
+      "category": "Railings",
+      "price": 8500,
+      "image": "assets/images/products/railing1.jpg",
+      "shortDescription": "Modern glass railing with stainless steel fittings",
+      "description": "Create stunning balconies and staircases with our architectural railing system. The frameless glass panels are secured with minimal stainless steel hardware for a clean, contemporary look that provides safety without obstructing views.",
+      "badge": "Popular",
+      "specs": [
+        {"name": "Material", "value": "Aluminum + Tempered Glass"},
+        {"name": "Glass Thickness", "value": "12mm or 15mm"},
+        {"name": "Height Options", "value": "900mm, 1000mm, 1100mm"},
+        {"name": "Glass Type", "value": "Clear, Tinted, or Frosted"},
+        {"name": "Handrail Options", "value": "Square or Round Profile"},
+        {"name": "Finish", "value": "Brushed or Polished Stainless Steel"},
+        {"name": "Load Capacity", "value": "1.5kN/m"},
+        {"name": "Warranty", "value": "5 years"}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tilt & Turn Window",
+      "category": "Windows",
+      "price": 16800,
+      "image": "assets/images/products/window2.jpg",
+      "shortDescription": "Versatile European-style window with dual opening modes",
+      "description": "Our tilt & turn windows combine ventilation control with enhanced security. The innovative mechanism allows for both inward tilting for ventilation and full inward opening for easy cleaning and emergency egress.",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6060-T66"},
+        {"name": "Frame Width", "value": "70mm"},
+        {"name": "Opening Types", "value": "Tilt (15°) and Turn (90°)"},
+        {"name": "Locking Points", "value": "6-point locking system"},
+        {"name": "Air Permeability", "value": "Class 4"},
+        {"name": "Water Tightness", "value": "Class 7A"},
+        {"name": "Sound Reduction", "value": "Up to 42dB"},
+        {"name": "Hardware", "value": "German-made multi-point locks"}
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sliding Patio Door",
+      "category": "Doors",
+      "price": 22500,
+      "image": "assets/images/products/door2.jpg",
+      "shortDescription": "Smooth sliding door system for residential and commercial use",
+      "description": "Our sliding patio doors feature a low-profile threshold for easy access and excellent thermal performance. The heavy-duty rollers can support large glass panels while maintaining effortless operation.",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6063-T5"},
+        {"name": "Panel Width", "value": "120mm"},
+        {"name": "Max Panel Weight", "value": "150kg"},
+        {"name": "Threshold Height", "value": "25mm"},
+        {"name": "Glass Options", "value": "Single or Double Glazed"},
+        {"name": "Locking System", "value": "Hook-type multi-point lock"},
+        {"name": "Roller System", "value": "Stainless steel with nylon wheels"},
+        {"name": "Warranty", "value": "8 years"}
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sunscreen Louver Facade",
+      "category": "Facades",
+      "price": 3800,
+      "image": "assets/images/products/facade2.jpg",
+      "shortDescription": "Architectural aluminum louvers for solar control",
+      "description": "Our sunscreen louver system reduces solar heat gain while maintaining outward visibility and natural ventilation. The adjustable blades can be fixed or motorized to dynamically control sunlight penetration throughout the day.",
+      "badge": "Energy Efficient",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6061-T6"},
+        {"name": "Blade Width", "value": "100-300mm"},
+        {"name": "Blade Spacing", "value": "Adjustable"},
+        {"name": "Angle Adjustment", "value": "0° to 90°"},
+        {"name": "Finish", "value": "PVDF Coating"},
+        {"name": "Wind Load", "value": "Up to 3000Pa"},
+        {"name": "Motorization", "value": "Optional with weatherproof motors"},
+        {"name": "Maintenance", "value": "Virtually maintenance-free"}
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Staircase Railing System",
+      "category": "Railings",
+      "price": 9800,
+      "image": "assets/images/products/railing2.jpg",
+      "shortDescription": "Modern aluminum railing for interior and exterior staircases",
+      "description": "Our staircase railing system combines aluminum posts with glass or metal infill panels to create safe and stylish stair railings. The system is designed for easy installation and can be customized to match any architectural style.",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6063-T5"},
+        {"name": "Post Spacing", "value": "Max 1200mm"},
+        {"name": "Height Options", "value": "900-1100mm"},
+        {"name": "Infill Options", "value": "Glass, Metal, or Cable"},
+        {"name": "Finish", "value": "Anodized or Powder Coated"},
+        {"name": "Handrail Options", "value": "Rectangular or Circular"},
+        {"name": "Load Capacity", "value": "1.0kN/m horizontal"},
+        {"name": "Compliance", "value": "Meets international safety standards"}
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Fixed Picture Window",
+      "category": "Windows",
+      "price": 9500,
+      "image": "assets/images/products/window3.jpg",
+      "shortDescription": "Non-operable window for maximum glass area and views",
+      "description": "Our fixed picture windows provide unobstructed views with a slim profile frame. The structural silicone glazing option creates a nearly frameless appearance for modern architectural designs.",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6063-T5"},
+        {"name": "Frame Width", "value": "50mm"},
+        {"name": "Max Single Pane", "value": "3000mm x 2400mm"},
+        {"name": "Glass Options", "value": "Laminated, Tinted, or Low-E"},
+        {"name": "Glazing Method", "value": "Structural Silicone or Pressure Cap"},
+        {"name": "Water Tightness", "value": "Class 8A"},
+        {"name": "Wind Resistance", "value": "Class 3 (1600Pa)"},
+        {"name": "Finish", "value": "Any RAL Color"}
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Entrance Door System",
+      "category": "Doors",
+      "price": 32500,
+      "image": "assets/images/products/door3.jpg",
+      "shortDescription": "Grand entrance door with high security features",
+      "description": "Make a statement with our premium aluminum entrance doors featuring multi-point locking systems and optional smart access control. The thermally broken frames ensure energy efficiency while providing a grand entrance to any building.",
+      "badge": "Premium",
+      "specs": [
+        {"name": "Material", "value": "Aluminum 6061-T6"},
+        {"name": "Frame Width", "value": "100mm"},
+        {"name": "Door Thickness", "value": "45-60mm"},
+        {"name": "Locking Points", "value": "Up to 12-point"},
+        {"name": "Security Rating", "value": "RC3 (EN 1627)"},
+        {"name": "Threshold", "value": "Automatic drop-down seal"},
+        {"name": "Access Control", "value": "Optional electronic locks"},
+        {"name": "Fire Rating", "value": "Optional 60/90 minutes"}
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Nepal Bank Headquarters",
+      "location": "Kathmandu, Nepal",
+      "year": "2022",
+      "area": "45,000 sq.ft",
+      "images": [
+        "assets/images/projects/bank1.jpg",
+        "assets/images/projects/bank2.jpg",
+        "assets/images/projects/bank3.jpg"
+      ],
+      "description": "We provided the complete curtain wall system and aluminum windows for this landmark banking headquarters. The project featured unitized curtain wall panels with integrated sunshades and high-performance glazing to meet the bank's strict energy efficiency requirements. Our team worked closely with the architects to achieve the distinctive curved facade design.",
+      "testimonial": {
+        "quote": "Pashupati's technical expertise was crucial in achieving the complex curved facade design while meeting our tight construction schedule. Their curtain wall system exceeded our performance expectations.",
+        "author": "Ar. Ramesh Shrestha",
+        "position": "Principal Architect, Design Forum",
+        "authorImage": "https://randomuser.me/api/portraits/men/32.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hyatt Regency",
+      "location": "Pokhara, Nepal",
+      "year": "2021",
+      "area": "32,000 sq.ft",
+      "images": [
+        "assets/images/projects/hyatt1.jpg",
+        "assets/images/projects/hyatt2.jpg",
+        "assets/images/projects/hyatt3.jpg"
+      ],
+      "description": "For this luxury hotel project, we supplied and installed all aluminum windows, sliding doors, and balcony railings. The bi-fold doors in the restaurant areas create seamless indoor-outdoor dining experiences. We used special marine-grade aluminum finishes to withstand the lakeside environment while maintaining aesthetic appeal.",
+      "testimonial": {
+        "quote": "The energy-efficient facade system reduced our building's cooling costs by 30%. Pashupati's attention to detail in the bi-fold door installation was particularly impressive.",
+        "author": "Sita Gurung",
+        "position": "Project Manager, Urban Developers",
+        "authorImage": "https://randomuser.me/api/portraits/women/44.jpg"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Tribhuvan International Airport Expansion",
+      "location": "Kathmandu, Nepal",
+      "year": "2023",
+      "area": "68,000 sq.ft",
+      "images": [
+        "assets/images/projects/airport1.jpg",
+        "assets/images/projects/airport2.jpg",
+        "assets/images/projects/airport3.jpg"
+      ],
+      "description": "This major infrastructure project required high-performance curtain walls and entrance systems that could meet strict aviation security and safety standards. We provided blast-resistant glazing systems and specialized aluminum framing that achieved both the security requirements and the architect's design vision for the terminal expansion.",
+      "testimonial": {
+        "quote": "Pashupati's blast-resistant glazing system passed all our rigorous testing while maintaining the architectural transparency required for the terminal design. Their team's understanding of aviation security requirements was exceptional.",
+        "author": "Rajendra Thapa",
+        "position": "Project Director, Civil Aviation Authority",
+        "authorImage": "https://randomuser.me/api/portraits/men/75.jpg"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Himalayan Heights Resort",
+      "location": "Nagarkot, Nepal",
+      "year": "2020",
+      "area": "28,500 sq.ft",
+      "images": [
+        "assets/images/projects/resort1.jpg",
+        "assets/images/projects/resort2.jpg",
+        "assets/images/projects/resort3.jpg"
+      ],
+      "description": "This luxury resort project featured extensive use of our aluminum sliding systems and custom railings to maximize mountain views. We developed special cold-weather adaptations for our systems to handle the high-altitude conditions while maintaining thermal performance.",
+      "testimonial": {
+        "quote": "Their custom aluminum railings perfectly complemented our luxury resort's aesthetic while meeting all safety standards. The cold-weather modifications have performed flawlessly through three Himalayan winters.",
+        "author": "Anil Bhattarai",
+        "position": "Owner, Himalayan Heights Resort",
+        "authorImage": "https://randomuser.me/api/portraits/men/68.jpg"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Corporate Tower",
+      "location": "Kathmandu, Nepal",
+      "year": "2022",
+      "area": "52,000 sq.ft",
+      "images": [
+        "assets/images/projects/tower1.jpg",
+        "assets/images/projects/tower2.jpg",
+        "assets/images/projects/tower3.jpg"
+      ],
+      "description": "For this LEED-certified office tower, we provided a complete high-performance facade system including curtain walls, windows, and sunshades. The project achieved a 40% reduction in energy consumption compared to conventional buildings through our thermally broken aluminum systems and spectrally selective glazing.",
+      "testimonial": {
+        "quote": "Pashupati's facade system was instrumental in achieving our LEED Platinum certification. Their energy modeling expertise helped optimize the balance between natural light and solar heat gain.",
+        "author": "Dr. Sunita Lama",
+        "position": "Sustainability Consultant, GreenBuild Nepal",
+        "authorImage": "https://randomuser.me/api/portraits/women/52.jpg"
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Pashupati's aluminum solutions transformed our commercial complex. Their attention to detail exceeded our expectations.",
+      "author": "Ar. Ramesh Shrestha",
+      "position": "Principal Architect, Design Forum",
+      "rating": 5,
+      "image": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "id": 2,
+      "quote": "The energy-efficient facade system reduced our building's cooling costs by 30%. Pashupati's technical expertise was invaluable.",
+      "author": "Sita Gurung",
+      "position": "Project Manager, Urban Developers",
+      "rating": 5,
+      "image": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": 3,
+      "quote": "Their custom aluminum railings perfectly complemented our luxury resort's aesthetic while meeting all safety standards.",
+      "author": "Rajendra Thapa",
+      "position": "Owner, Himalayan Heights Resort",
+      "rating": 4.5,
+      "image": "https://randomuser.me/api/portraits/men/75.jpg"
+    },
+    {
+      "id": 4,
+      "quote": "Working with Pashupati on our hospital project was seamless. Their infection-control compliant aluminum systems met all our stringent requirements.",
+      "author": "Dr. Anita Sharma",
+      "position": "Hospital Administrator",
+      "rating": 5,
+      "image": "https://randomuser.me/api/portraits/women/63.jpg"
+    },
+    {
+      "id": 5,
+      "quote": "The blast-resistant glazing system for our embassy project passed all security tests while maintaining excellent visibility.",
+      "author": "John Smith",
+      "position": "Security Consultant, Diplomatic Services",
+      "rating": 4,
+      "image": "https://randomuser.me/api/portraits/men/81.jpg"
+    }
+  ],
+  "categories": [
+    {"id": 1, "name": "Windows", "slug": "windows"},
+    {"id": 2, "name": "Doors", "slug": "doors"},
+    {"id": 3, "name": "Facades", "slug": "facades"},
+    {"id": 4, "name": "Railings", "slug": "railings"}
+  ],
+  "companyInfo": {
+    "name": "Pashupati Aluminium and Glass Center",
+    "address": "Pashupati Road, Gongabu, Kathmandu, Nepal",
+    "phone": "+977-1-1234567",
+    "mobile": "+977-9851020304",
+    "email": "info@pashupatialuminium.com",
+    "salesEmail": "sales@pashupatialuminium.com",
+    "hours": "Sunday-Friday: 9AM - 6PM",
+    "socialMedia": {
+      "facebook": "https://facebook.com/pashupatialuminium",
+      "instagram": "https://instagram.com/pashupatialuminium",
+      "linkedin": "https://linkedin.com/company/pashupati-aluminium",
+      "youtube": "https://youtube.com/pashupatialuminium"
+    },
+    "about": "Established in 2005, Pashupati Aluminium and Glass Center has grown to become a leading provider of premium aluminum solutions for modern architecture in Nepal. With over 18 years of experience, we specialize in high-performance aluminum windows, doors, facades, and railing systems that combine aesthetic appeal with technical excellence.",
+    "stats": {
+      "yearsExperience": 18,
+      "projectsCompleted": 1200,
+      "countriesServed": 15,
+      "employees": 85
+    }
+  }
+}

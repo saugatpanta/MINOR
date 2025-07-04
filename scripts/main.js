@@ -1,924 +1,659 @@
- HEAD
-/**
- * Pashupati Aluminium & Glass Center - Main JavaScript File
- * 
- * This file contains all the interactive functionality for the website including:
- * - Authentication system (login/signup)
- * - Product loading from JSON
- * - Interactive maps
- * - MongoDB connectivity
- * - Animations and UI enhancements
- */
-
-// Initialize MongoDB Stitch (Atlas) connection
-const initMongoDB = () => {
-    // MongoDB Stitch App ID (replace with your actual App ID)
-    const APP_ID = 'pashupati-aluminium-abcde';
-    
-    // Initialize the MongoDB Stitch client
-    const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
-    
-    // Get a MongoDB service client
-    const mongodb = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas');
-    
-    // Get database and collections
-    const db = mongodb.db('pashupati');
-    const usersCollection = db.collection('users');
-    const productsCollection = db.collection('products');
-    const inquiriesCollection = db.collection('inquiries');
-    
-    return {
-        client,
-        db,
-        usersCollection,
-        productsCollection,
-        inquiriesCollection
-    };
-};
-
-// MongoDB Connection Object
-const mongoDB = initMongoDB();
-
-// DOM Elements
-const userAuthSection = document.getElementById('userAuthSection');
-const adminAuthSection = document.getElementById('adminAuthSection');
-const loginBtn = document.querySelector('.login-btn');
-const adminBtn = document.querySelector('.admin-btn');
-const closeBtns = document.querySelectorAll('.close-btn');
-const authTabs = document.querySelectorAll('.auth-tab');
-const authForms = document.querySelectorAll('.auth-form');
-const authSwitchLinks = document.querySelectorAll('.auth-switch a');
-const statusMessage = document.getElementById('statusMessage');
-const signupRole = document.getElementById('signupRole');
-const employeeCodeContainer = document.getElementById('employeeCodeContainer');
-const userLoginForm = document.getElementById('userLoginForm');
-const userSignupForm = document.getElementById('userSignupForm');
-const adminLoginForm = document.getElementById('adminLoginForm');
-const themeToggle = document.getElementById('themeToggle');
-const hamburger = document.querySelector('.hamburger');
-const navbar = document.querySelector('.navbar');
-const backToTopBtn = document.getElementById('backToTopBtn');
-const resetForm = document.getElementById('resetForm');
-const showResetForm = document.getElementById('showResetForm');
-const passwordResetForm = document.getElementById('passwordResetForm');
-const cancelReset = document.getElementById('cancelReset');
-const adminResetForm = document.getElementById('adminResetForm');
-const showAdminResetForm = document.getElementById('showAdminResetForm');
-const adminPasswordResetForm = document.getElementById('adminPasswordResetForm');
-const cancelAdminReset = document.getElementById('cancelAdminReset');
-const resetCodeField = document.getElementById('resetCodeField');
-const passwordToggles = document.querySelectorAll('.password-toggle');
-const loginRole = document.getElementById('loginRole');
-const productContainer = document.getElementById('productContainer');
-const categoryButtons = document.querySelectorAll('.category-btn');
-const loadMoreBtn = document.getElementById('loadMoreProducts');
-const inquiryForm = document.getElementById('inquiryForm');
-const newsletterForm = document.getElementById('newsletterForm');
-const quickContactBtn = document.querySelector('.quick-contact-btn');
-const quickContact = document.querySelector('.quick-contact');
-
-// Global Variables
-let currentUser = null;
-let isAdmin = false;
-let products = [];
-let displayedProducts = 0;
-const productsPerLoad = 6;
-
-/**
- * Initialize the application when DOM is loaded
- */
-document.addEventListener('DOMContentLoaded', function () {
-    // Check authentication status
-    checkAuthStatus();
-    
-    // Initialize animations
-    initAnimations();
-    
-    // Initialize event listeners
-    initEventListeners();
-    
-    // Load products from MongoDB
-    loadProducts();
-    
-    // Initialize map
-    initMap();
-    
-    // Initialize counter animations
-    initCounters();
-});
-
-/**
- * Check user authentication status
- */
-const checkAuthStatus = () => {
-    // Check if user is logged in (from sessionStorage)
-    const userData = sessionStorage.getItem('currentUser');
-    const adminStatus = sessionStorage.getItem('isAdmin');
-    
-    if (userData) {
-        currentUser = JSON.parse(userData);
-        updateAuthUI();
-    }
-    
-    if (adminStatus === 'true') {
-        isAdmin = true;
-        updateAuthUI();
-    }
-};
-
-/**
- * Initialize all animations
- */
-const initAnimations = () => {
-    // Animate elements when they come into view
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('[data-aos]');
-        
-        elements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                el.classList.add('aos-animate');
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize particles.js
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#00f7ff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#00f7ff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" }
             }
-        });
-    };
-    
-    // Run on load and scroll
-    animateOnScroll();
-    window.addEventListener('scroll', animateOnScroll);
-};
+        }
+    });
 
-/**
- * Initialize all event listeners
- */
-const initEventListeners = () => {
-    // Mobile menu toggle
-    hamburger.addEventListener('click', toggleMobileMenu);
-    
-    // Close mobile menu when clicking a link
-    navbar.querySelectorAll('a').forEach(link => {
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+    document.body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        document.body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+        setTimeout(() => { document.body.style.transition = ''; }, 500);
+    });
+
+    function updateThemeIcon(theme) {
+        themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    }
+
+    // Mobile hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navbar.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.navbar a').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                toggleMobileMenu();
+            if (window.innerWidth <= 992) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             }
         });
     });
+
+    // Navigation between sections
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.section');
     
-    // Theme toggle
-    themeToggle.addEventListener('click', toggleDarkMode);
-    
-    // Back to top button
-    backToTopBtn.addEventListener('click', scrollToTop);
-    window.addEventListener('scroll', toggleBackToTop);
-    
-    // Login/Signup buttons
-    loginBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleAuthModal('user');
-    });
-    
-    adminBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleAuthModal('admin');
-    });
-    
-    // Close auth modals
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', closeAuthModals);
-    });
-    
-    // Auth modal background click
-    userAuthSection.addEventListener('click', (e) => {
-        if (e.target === userAuthSection) closeAuthModals();
-    });
-    
-    adminAuthSection.addEventListener('click', (e) => {
-        if (e.target === adminAuthSection) closeAuthModals();
-    });
-    
-    // Auth tab switching
-    authTabs.forEach(tab => {
-        tab.addEventListener('click', function () {
-            switchTab(this.getAttribute('data-tab'));
-        });
-    });
-    
-    // Auth switch links
-    authSwitchLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            switchTab(this.getAttribute('data-tab'));
+            const sectionId = btn.getAttribute('data-section');
+            
+            // Update active navigation button
+            navBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Show the corresponding section
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Smooth scroll to section
+            window.scrollTo({
+                top: document.getElementById(sectionId).offsetTop - 100,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (window.innerWidth <= 992) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
         });
     });
-    
-    // Show/hide employee code input
-    signupRole.addEventListener('change', function () {
-        const isEmployee = this.value === 'employee';
-        employeeCodeContainer.style.display = isEmployee ? 'block' : 'none';
-        document.getElementById('employeeCode').required = isEmployee;
-    });
-    
-    // Password toggles
-    passwordToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const input = this.previousElementSibling;
-            togglePasswordVisibility(input, this);
+
+    // Make "Explore Products" button work
+    const exploreProductsBtn = document.querySelector('.btn-primary[href="#products"]');
+    if (exploreProductsBtn) {
+        exploreProductsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productsSection = document.getElementById('products');
+            
+            // Show products section
+            sections.forEach(s => s.classList.remove('active'));
+            productsSection.classList.add('active');
+            
+            // Update active nav button
+            navBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector('.nav-btn[data-section="products"]').classList.add('active');
+            
+            // Scroll to products section
+            window.scrollTo({
+                top: productsSection.offsetTop - 100,
+                behavior: 'smooth'
+            });
         });
-    });
-    
-    // Reset password forms
-    showResetForm.addEventListener('click', function(e) {
-        e.preventDefault();
-        resetForm.classList.add('active');
-        userLoginForm.style.display = 'none';
-    });
-    
-    cancelReset.addEventListener('click', function() {
-        resetForm.classList.remove('active');
-        userLoginForm.style.display = 'block';
-    });
-    
-    showAdminResetForm.addEventListener('click', function(e) {
-        e.preventDefault();
-        adminLoginForm.style.display = 'none';
-        adminResetForm.classList.add('active');
-    });
-    
-    cancelAdminReset.addEventListener('click', function() {
-        adminResetForm.classList.remove('active');
-        adminLoginForm.style.display = 'block';
-    });
-    
+    }
+
     // Product category filtering
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterProducts(this.getAttribute('data-category'));
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const productContainer = document.getElementById('productContainer');
+    const loadMoreBtn = document.getElementById('loadMoreProducts');
+    let products = [];
+    let visibleProducts = 6;
+
+    // Load products from JSON
+    function loadProducts() {
+        fetch('data/products.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                products = data.products || data; // Handle both formats
+                displayProducts(products.slice(0, visibleProducts));
+                setupProductCardListeners();
+            })
+            .catch(error => {
+                console.error('Error loading products:', error);
+                productContainer.innerHTML = '<p class="error-message">Failed to load products. Please try again later.</p>';
+            });
+    }
+
+    function displayProducts(productsToShow) {
+        if (!productsToShow || productsToShow.length === 0) {
+            productContainer.innerHTML = '<p class="no-products">No products found in this category</p>';
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            return;
+        }
+
+        productContainer.innerHTML = productsToShow.map(product => `
+            <div class="product-card" data-category="${product.category.toLowerCase()}" data-id="${product.id}">
+                ${product.badge ? `<span class="product-card-badge">${product.badge}</span>` : ''}
+                <img src="${product.image}" alt="${product.name}" class="product-card-img">
+                <div class="product-card-content">
+                    <h3>${product.name}</h3>
+                    <p>${product.shortDescription || ''}</p>
+                    <div class="product-meta">
+                        <span class="product-price">Rs. ${product.price}</span>
+                        <span class="product-category">${product.category}</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        if (loadMoreBtn) {
+            const activeCategory = document.querySelector('.category-btn.active')?.getAttribute('data-category') || 'all';
+            const filteredProducts = activeCategory === 'all' ? products : 
+                products.filter(p => p.category.toLowerCase() === activeCategory.toLowerCase());
+            loadMoreBtn.style.display = visibleProducts < filteredProducts.length ? 'block' : 'none';
+        }
+    }
+
+    function setupProductCardListeners() {
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const productId = this.getAttribute('data-id');
+                fetchProductDetails(productId);
+            });
+        });
+    }
+
+    if (categoryButtons.length > 0) {
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.getAttribute('data-category');
+                filterProducts(category);
+            });
+        });
+    }
+
+    function filterProducts(category) {
+        let filteredProducts = category !== 'all' ? 
+            products.filter(product => product.category.toLowerCase() === category.toLowerCase()) : 
+            products;
+        visibleProducts = 6;
+        displayProducts(filteredProducts.slice(0, visibleProducts));
+    }
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            const activeCategory = document.querySelector('.category-btn.active')?.getAttribute('data-category') || 'all';
+            let filteredProducts = activeCategory !== 'all' ? 
+                products.filter(product => product.category.toLowerCase() === activeCategory.toLowerCase()) : 
+                products;
+            visibleProducts += 6;
+            displayProducts(filteredProducts.slice(0, visibleProducts));
+            if (visibleProducts >= filteredProducts.length) loadMoreBtn.style.display = 'none';
+        });
+    }
+
+    function fetchProductDetails(id) {
+        fetch('data/products.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                const products = data.products || data; // Handle both formats
+                const product = products.find(p => p.id == id);
+                if (product) showProductModal(product);
+                else console.error('Product not found');
+            })
+            .catch(error => console.error('Error fetching product details:', error));
+    }
+
+    function showProductModal(product) {
+        const modal = document.getElementById('productModal');
+        const content = document.getElementById('productModalContent');
+        content.innerHTML = `
+            <div class="modal-product">
+                <div class="modal-product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="modal-product-details">
+                    <h2>${product.name}</h2>
+                    <div class="product-meta">
+                        <span class="product-price">Rs. ${product.price}</span>
+                        <span class="product-category">${product.category}</span>
+                    </div>
+                    <p>${product.description}</p>
+                    <div class="product-specs">
+                        <h3>Specifications</h3>
+                        <ul>
+                            ${product.specs.map(spec => `<li><strong>${spec.name}:</strong> ${spec.value}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button class="btn-primary">Request Quote</button>
+                </div>
+            </div>
+        `;
+        modal.style.display = 'block';
+    }
+
+    // Project details functionality
+    document.querySelectorAll('.project-view-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const projectId = this.getAttribute('data-project');
+            fetchProjectDetails(projectId);
         });
     });
-    
-    // Load more products
-    loadMoreBtn.addEventListener('click', loadMoreProducts);
-    
-    // Form submissions
-    if (userLoginForm) {
-        userLoginForm.addEventListener('submit', handleUserLogin);
-    }
-    
-    if (userSignupForm) {
-        userSignupForm.addEventListener('submit', handleUserSignup);
-    }
-    
-    if (adminLoginForm) {
-        adminLoginForm.addEventListener('submit', handleAdminLogin);
-    }
-    
-    if (passwordResetForm) {
-        passwordResetForm.addEventListener('submit', handlePasswordReset);
-    }
-    
-    if (adminPasswordResetForm) {
-        adminPasswordResetForm.addEventListener('submit', handleAdminPasswordReset);
-    }
-    
-    if (inquiryForm) {
-        inquiryForm.addEventListener('submit', handleInquirySubmit);
-    }
-    
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
-    }
-    
-    // Quick contact button
-    if (quickContactBtn) {
-        quickContactBtn.addEventListener('click', toggleQuickContact);
-    }
-};
 
-/**
- * Toggle mobile menu
- */
-const toggleMobileMenu = () => {
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-    hamburger.classList.toggle('active');
-    navbar.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-    document.body.style.overflow = isExpanded ? '' : 'hidden';
-};
-
-/**
- * Toggle dark mode
- */
-const toggleDarkMode = () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-};
-
-/**
- * Check and apply dark mode preference from localStorage
- */
-const applyDarkModePreference = () => {
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️';
+    function fetchProjectDetails(id) {
+        fetch('data/projects.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                const projects = data.projects || data; // Handle both formats
+                const project = projects.find(p => p.id == id);
+                if (project) showProjectModal(project);
+            })
+            .catch(error => console.error('Error fetching project details:', error));
     }
-};
 
-/**
- * Scroll to top of page
- */
-const scrollToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-};
-
-/**
- * Show/hide back to top button based on scroll position
- */
-const toggleBackToTop = () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'flex';
-    } else {
-        backToTopBtn.style.display = 'none';
-    }
-    
-    // Header shadow on scroll
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-};
-
-/**
- * Toggle authentication modals
- * @param {string} type - 'user' or 'admin'
- */
-const toggleAuthModal = (type) => {
-    if (type === 'user') {
-        userAuthSection.classList.add('show');
-    } else if (type === 'admin') {
-        adminAuthSection.classList.add('show');
-    }
-    document.body.style.overflow = 'hidden';
-};
-
-/**
- * Close all auth modals
- */
-const closeAuthModals = () => {
-    userAuthSection.classList.remove('show');
-    adminAuthSection.classList.remove('show');
-    document.body.style.overflow = '';
-};
-
-/**
- * Switch between auth tabs
- * @param {string} tabName - 'login' or 'signup'
- */
-const switchTab = (tabName) => {
-    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-    document.querySelector(`.auth-tab[data-tab="${tabName}"]`).classList.add('active');
-    
-    document.querySelectorAll('.auth-form').forEach(f => {
-        f.classList.remove('active');
-        if (f.id === `${tabName}Form`) f.classList.add('active');
-    });
-};
-
-/**
- * Toggle password visibility
- * @param {HTMLElement} input - Password input element
- * @param {HTMLElement} toggle - Toggle button element
- */
-const togglePasswordVisibility = (input, toggle) => {
-    if (input.type === 'password') {
-        input.type = 'text';
-        toggle.innerHTML = '<i class="far fa-eye-slash"></i>';
-    } else {
-        input.type = 'password';
-        toggle.innerHTML = '<i class="far fa-eye"></i>';
-    }
-};
-
-/**
- * Update authentication UI based on login state
- */
-const updateAuthUI = () => {
-    if (currentUser) {
-        loginBtn.textContent = `Hi, ${currentUser.name.split(' ')[0]}`;
-        loginBtn.classList.add('logged-in');
-        loginBtn.onclick = function () {
-            sessionStorage.removeItem('currentUser');
-            currentUser = null;
-            loginBtn.textContent = 'Login';
-            loginBtn.classList.remove('logged-in');
-            showStatusMessage('Logged out successfully', 'success');
-        };
-    } else {
-        loginBtn.textContent = 'Login';
-        loginBtn.classList.remove('logged-in');
-        loginBtn.onclick = (e) => {
-            e.preventDefault();
-            toggleAuthModal('user');
-        };
-    }
-    
-    if (isAdmin) {
-        adminBtn.textContent = 'Admin Dashboard';
-        adminBtn.classList.add('logged-in');
-        adminBtn.onclick = () => {
-            sessionStorage.removeItem('isAdmin');
-            isAdmin = false;
-            adminBtn.textContent = 'Admin';
-            adminBtn.classList.remove('logged-in');
-            showStatusMessage('Admin logged out', 'success');
-        };
-    } else {
-        adminBtn.textContent = 'Admin';
-        adminBtn.classList.remove('logged-in');
-        adminBtn.onclick = (e) => {
-            e.preventDefault();
-            toggleAuthModal('admin');
-        };
-    }
-};
-
-/**
- * Show status message
- * @param {string} message - Message to display
- * @param {string} type - 'success' or 'error'
- */
-const showStatusMessage = (message, type = 'success') => {
-    statusMessage.textContent = message;
-    statusMessage.className = `status-message show ${type === 'error' ? 'error' : 'success'}`;
-    
-    if (type === 'success') {
-        statusMessage.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
-    } else {
-        statusMessage.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
-    }
-    
-    setTimeout(() => statusMessage.classList.remove('show'), 3000);
-};
-
-/**
- * Load products from MongoDB
- */
-const loadProducts = async () => {
-    try {
-        // Show loading state
-        productContainer.innerHTML = '<div class="loading-spinner"><div></div><div></div><div></div><div></div></div>';
-        
-        // Fetch products from MongoDB
-        const products = await mongoDB.productsCollection.find({}).toArray();
-        
-        // Store products globally
-        window.products = products;
-        
-        // Display initial products
-        displayProducts(products.slice(0, productsPerLoad));
-        displayedProducts = productsPerLoad;
-        
-        // Show/hide load more button
-        if (products.length <= productsPerLoad) {
-            loadMoreBtn.style.display = 'none';
-        }
-    } catch (error) {
-        console.error('Error loading products:', error);
-        showStatusMessage('Failed to load products. Please try again.', 'error');
-        
-        // Fallback to local JSON if MongoDB fails
-        fetchProductsFromJSON();
-    }
-};
-
-/**
- * Fallback to load products from local JSON file
- */
-const fetchProductsFromJSON = async () => {
-    try {
-        const response = await fetch('data/products.json');
-        const products = await response.json();
-        
-        // Store products globally
-        window.products = products;
-        
-        // Display initial products
-        displayProducts(products.slice(0, productsPerLoad));
-        displayedProducts = productsPerLoad;
-        
-        // Show/hide load more button
-        if (products.length <= productsPerLoad) {
-            loadMoreBtn.style.display = 'none';
-        }
-    } catch (error) {
-        console.error('Error loading products from JSON:', error);
-        productContainer.innerHTML = '<p class="error-message">Failed to load products. Please refresh the page or try again later.</p>';
-    }
-};
-
-/**
- * Display products in the product grid
- * @param {Array} products - Array of product objects
- */
-const displayProducts = (products) => {
-    if (products.length === 0) {
-        productContainer.innerHTML = '<p class="no-products">No products found in this category.</p>';
-        return;
-    }
-    
-    let html = '';
-    
-    products.forEach(product => {
-        html += `
-            <div class="product-card" data-category="${product.category}">
-                <div class="product-image-container">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" />
-                    ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+    function showProjectModal(project) {
+        const modal = document.getElementById('projectModal');
+        const content = document.getElementById('projectModalContent');
+        content.innerHTML = `
+            <div class="modal-project">
+                <h2>${project.name}</h2>
+                <div class="project-meta">
+                    <p><strong>Location:</strong> ${project.location}</p>
+                    <p><strong>Completed:</strong> ${project.year}</p>
+                    <p><strong>Area:</strong> ${project.area}</p>
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">${product.name}</h3>
-                    <p class="product-description">${product.description}</p>
-                    
-                    <div class="product-specs">
-                        ${product.specs.map(spec => `<span class="product-spec">${spec}</span>`).join('')}
-                    </div>
-                    
-                    <div class="product-footer">
-                        <span class="product-price">${product.price}</span>
-                        <a href="product-details.html?id=${product.id}" class="btn-outline">Details</a>
+                <div class="project-gallery">
+                    ${project.images.map(img => `<img src="${img}" alt="${project.name}">`).join('')}
+                </div>
+                <div class="project-description">
+                    <h3>Project Details</h3>
+                    <p>${project.description}</p>
+                </div>
+                <div class="project-testimonial">
+                    <blockquote>"${project.testimonial.quote}"</blockquote>
+                    <div class="testimonial-author">
+                        <img src="${project.testimonial.authorImage}" alt="${project.testimonial.author}">
+                        <div>
+                            <h4>${project.testimonial.author}</h4>
+                            <p>${project.testimonial.position}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
-    });
-    
-    productContainer.innerHTML = html;
-};
+        modal.style.display = 'block';
+    }
 
-/**
- * Load more products when "View More" button is clicked
- */
-const loadMoreProducts = () => {
-    const remainingProducts = window.products.length - displayedProducts;
-    const nextProducts = window.products.slice(displayedProducts, displayedProducts + Math.min(productsPerLoad, remainingProducts));
+    // Consultation Modal Functionality
+    const consultationBtn = document.querySelector('.btn-outline[href="#contact"]');
+    const consultationModal = document.getElementById('consultationModal');
+    const consultationForm = document.getElementById('consultationForm');
+    const consultationProducts = document.getElementById('consultationProducts');
     
-    displayProducts([...document.querySelectorAll('.product-card'), ...nextProducts]);
-    displayedProducts += nextProducts.length;
-    
-    if (displayedProducts >= window.products.length) {
-        loadMoreBtn.style.display = 'none';
-    }
-};
-
-/**
- * Filter products by category
- * @param {string} category - Category to filter by
- */
-const filterProducts = (category) => {
-    // Update active category button
-    categoryButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-category') === category);
-    });
-    
-    // Filter products
-    let filteredProducts = window.products;
-    if (category !== 'all') {
-        filteredProducts = window.products.filter(product => product.category === category);
-    }
-    
-    // Reset displayed products
-    displayedProducts = Math.min(productsPerLoad, filteredProducts.length);
-    
-    // Display filtered products
-    displayProducts(filteredProducts.slice(0, displayedProducts));
-    
-    // Show/hide load more button
-    if (filteredProducts.length <= displayedProducts) {
-        loadMoreBtn.style.display = 'none';
-    } else {
-        loadMoreBtn.style.display = 'block';
-    }
-};
-
-/**
- * Initialize Leaflet map
- */
-const initMap = () => {
-    const mapElement = document.getElementById('map');
-    if (!mapElement) return;
-    
-    // Coordinates for Pashupati Aluminium (example coordinates)
-    const pashupatiCoords = [27.7172, 85.3240];
-    
-    // Create map
-    const map = L.map('map').setView(pashupatiCoords, 15);
-    
-    // Add tile layer (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    
-    // Add marker
-    L.marker(pashupatiCoords).addTo(map)
-        .bindPopup('<b>Pashupati Aluminium</b><br>Head Office Location')
-        .openPopup();
-};
-
-/**
- * Initialize counter animations
- */
-const initCounters = () => {
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const increment = target / speed;
-        
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(initCounters, 1);
-        } else {
-            counter.innerText = target + '+';
-        }
-    });
-};
-
-/**
- * Handle user login form submission
- * @param {Event} e - Form submission event
- */
-const handleUserLogin = async (e) => {
-    e.preventDefault();
-    
-    const role = document.getElementById('loginRole').value;
-    const email = document.getElementById('loginEmail').value.trim().toLowerCase();
-    const password = document.getElementById('loginPassword').value;
-    
-    if (!role) {
-        showStatusMessage('Please select a role', 'error');
-        return;
-    }
-    
-    try {
-        // Authenticate with MongoDB Stitch
-        await mongoDB.client.auth.loginWithCredential(
-            new stitch.UserPasswordCredential(email, password)
-        );
-        
-        // Get user data
-        const user = await mongoDB.usersCollection.findOne({ email, role });
-        
-        if (user) {
-            showStatusMessage('Login successful!', 'success');
-            sessionStorage.setItem('currentUser', JSON.stringify(user));
-            
-            setTimeout(() => {
-                window.location.href = `${role}-dashboard.html`;
-            }, 1500);
-        } else {
-            showStatusMessage('Invalid credentials or role!', 'error');
-            await mongoDB.client.auth.logout();
-        }
-    } catch (error) {
-        console.error('Login error:', error);
-        showStatusMessage('Invalid credentials or role!', 'error');
-    }
-};
-
-/**
- * Handle user signup form submission
- * @param {Event} e - Form submission event
- */
-const handleUserSignup = async (e) => {
-    e.preventDefault();
-    
-    const role = signupRole.value;
-    const name = document.getElementById('signupName').value;
-    const email = document.getElementById('signupEmail').value.trim().toLowerCase();
-    const phone = document.getElementById('signupPhone').value;
-    const address = document.getElementById('signupAddress').value;
-    const password = document.getElementById('signupPassword').value;
-    const confirmPassword = document.getElementById('signupConfirmPassword').value;
-    const employeeCode = document.getElementById('employeeCode')?.value;
-    
-    if (!role) {
-        showStatusMessage('Please select a role', 'error');
-        return;
-    }
-    
-    if (password !== confirmPassword) {
-        showStatusMessage('Passwords do not match!', 'error');
-        return;
-    }
-    
-    if (role === 'employee' && employeeCode !== 'PASHUPATI123') {
-        showStatusMessage('Invalid employee code!', 'error');
-        return;
-    }
-    
-    try {
-        // Check if user already exists
-        const existingUser = await mongoDB.usersCollection.findOne({ email });
-        
-        if (existingUser) {
-            showStatusMessage('Email already registered!', 'error');
-            return;
-        }
-        
-        // Register new user
-        await mongoDB.client.auth.registerWithEmail(email, password);
-        
-        // Create user document
-        const newUser = { 
-            role, 
-            name, 
-            email, 
-            phone, 
-            address, 
-            password, // Note: In production, hash the password before storing
-            createdAt: new Date().toISOString() 
-        };
-        
-        await mongoDB.usersCollection.insertOne(newUser);
-        
-        showStatusMessage('Registration successful! Please login.', 'success');
-        switchTab('login');
-        userSignupForm.reset();
-        employeeCodeContainer.style.display = 'none';
-    } catch (error) {
-        console.error('Signup error:', error);
-        showStatusMessage('Registration failed. Please try again.', 'error');
-    }
-};
-
-/**
- * Handle admin login form submission
- * @param {Event} e - Form submission event
- */
-const handleAdminLogin = async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('adminEmail').value.trim().toLowerCase();
-    const password = document.getElementById('adminPassword').value;
-    
-    try {
-        // Authenticate with MongoDB Stitch
-        await mongoDB.client.auth.loginWithCredential(
-            new stitch.UserPasswordCredential(email, password)
-        );
-        
-        // Check if user is admin
-        const adminUser = await mongoDB.usersCollection.findOne({ 
-            email, 
-            role: 'admin' 
+    if (consultationBtn) {
+        consultationBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            consultationModal.style.display = 'block';
+            loadProductsForConsultation();
         });
-        
-        if (adminUser) {
-            showStatusMessage('Admin login successful!', 'success');
-            sessionStorage.setItem('isAdmin', 'true');
-            sessionStorage.setItem('adminEmail', email);
-            adminLoginForm.reset();
+    }
+    
+    function loadProductsForConsultation() {
+        fetch('data/products.json')
+            .then(response => response.json())
+            .then(data => {
+                const products = data.products || data; // Handle both formats
+                consultationProducts.innerHTML = products.map(product => `
+                    <div class="product-checkbox">
+                        <input type="checkbox" id="product-${product.id}" name="products" value="${product.id}">
+                        <label for="product-${product.id}">${product.name} (${product.category})</label>
+                    </div>
+                `).join('');
+            })
+            .catch(error => console.error('Error loading products:', error));
+    }
+    
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            setTimeout(() => {
-                window.location.href = 'admin-dashboard.html';
-            }, 1500);
-        } else {
-            showStatusMessage('Invalid admin credentials', 'error');
-            await mongoDB.client.auth.logout();
-        }
-    } catch (error) {
-        console.error('Admin login error:', error);
-        showStatusMessage('Invalid admin credentials', 'error');
+            const formData = new FormData(consultationForm);
+            const selectedProducts = Array.from(document.querySelectorAll('#consultationProducts input:checked'))
+                .map(input => input.value);
+            
+            // Add selected products to form data
+            formData.append('selectedProducts', JSON.stringify(selectedProducts));
+            
+            // Here you would typically send the data to your server
+            console.log('Consultation request:', Object.fromEntries(formData));
+            
+            // Show success message
+            showStatusMessage('Consultation request submitted successfully! Our team will contact you soon.', 'success');
+            
+            // Close modal
+            consultationModal.style.display = 'none';
+            consultationForm.reset();
+        });
     }
-};
+    
+    // Close modals when clicking outside or on close button
+    document.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.getElementById('productModal').style.display = 'none';
+            document.getElementById('projectModal').style.display = 'none';
+            if (consultationModal) consultationModal.style.display = 'none';
+        });
+    });
 
-/**
- * Handle password reset form submission
- * @param {Event} e - Form submission event
- */
-const handlePasswordReset = async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('resetEmail').value.trim().toLowerCase();
-    const code = document.getElementById('resetCode').value;
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmPassword = document.getElementById('confirmNewPassword').value;
-    
-    if (newPassword !== confirmPassword) {
-        showStatusMessage('Passwords do not match!', 'error');
-        return;
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+
+    // Google Maps integration
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+        // Create an iframe with Google Maps embed
+        const mapIframe = document.createElement('iframe');
+        mapIframe.setAttribute('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.456030828568!2d85.36568331506203!3d27.71119628279315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bcdb4d3e689%3A0xac5beaad4f023444!2sPashupati%20Aluminium%20and%20Glass%20Center!5e0!3m2!1sen!2snp!4v1620000000000!5m2!1sen!2snp');
+        mapIframe.setAttribute('width', '100%');
+        mapIframe.setAttribute('height', '100%');
+        mapIframe.setAttribute('style', 'border:0;');
+        mapIframe.setAttribute('allowfullscreen', '');
+        mapIframe.setAttribute('loading', 'lazy');
+        mapElement.appendChild(mapIframe);
     }
-    
-    try {
-        // Check if user exists
-        const user = await mongoDB.usersCollection.findOne({ email });
-        
-        if (user) {
-            if (user.role === 'admin' || user.role === 'employee') {
-                if (code !== 'PASHUPATI123') {
-                    showStatusMessage('Invalid reset code!', 'error');
-                    return;
+
+    // Authentication functionality
+        const loginBtn = document.querySelector('.login-btn');
+    const adminBtn = document.querySelector('.admin-btn');
+    const userAuthSection = document.getElementById('userAuthSection');
+    const adminAuthSection = document.getElementById('adminAuthSection');
+    const closeBtns = document.querySelectorAll('.close-btn');
+    const authTabs = document.querySelectorAll('.auth-tab');
+    const authForms = document.querySelectorAll('.auth-form');
+    const showResetForm = document.getElementById('showResetForm');
+    const resetForm = document.getElementById('resetForm');
+    const cancelReset = document.getElementById('cancelReset');
+    const showAdminResetForm = document.getElementById('showAdminResetForm');
+    const adminResetForm = document.getElementById('adminResetForm');
+    const cancelAdminReset = document.getElementById('cancelAdminReset');
+    const signupRole = document.getElementById('signupRole');
+    const employeeCodeContainer = document.getElementById('employeeCodeContainer');
+    const loginRole = document.getElementById('loginRole');
+    const resetCodeField = document.getElementById('resetCodeField');
+
+    function toggleAuthModal(modal, show) {
+        if (show) {
+            modal.classList.add('active');
+            document.body.classList.add('no-scroll');
+        } else {
+            modal.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+    }
+
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleAuthModal(userAuthSection, true);
+            document.getElementById('loginForm').classList.add('active');
+            document.getElementById('signupForm').classList.remove('active');
+            authTabs[0].classList.add('active');
+            authTabs[1].classList.remove('active');
+            resetForm.classList.remove('active'); // Ensure reset form is hidden when opening login
+        });
+    }
+
+    if (adminBtn) {
+        adminBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleAuthModal(adminAuthSection, true);
+            adminResetForm.classList.remove('active'); // Ensure admin reset form is hidden when opening
+        });
+    }
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.auth-section');
+            toggleAuthModal(modal, false);
+            // Reset forms when closing modal
+            if (modal === userAuthSection) {
+                resetForm.classList.remove('active');
+                document.getElementById('loginForm').classList.add('active');
+            }
+            if (modal === adminAuthSection) {
+                adminResetForm.classList.remove('active');
+                document.querySelector('#adminAuthSection .auth-form').classList.add('active');
+            }
+        });
+    });
+
+    [userAuthSection, adminAuthSection].forEach(modal => {
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    toggleAuthModal(this, false);
+                    // Reset forms when clicking outside
+                    if (modal === userAuthSection) {
+                        resetForm.classList.remove('active');
+                        document.getElementById('loginForm').classList.add('active');
+                    }
+                    if (modal === adminAuthSection) {
+                        adminResetForm.classList.remove('active');
+                        document.querySelector('#adminAuthSection .auth-form').classList.add('active');
+                    }
+                }
+            });
+        }
+    });
+
+    authTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabName = this.getAttribute('data-tab');
+            authTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            authForms.forEach(form => form.classList.remove('active'));
+            document.getElementById(`${tabName}Form`).classList.add('active');
+            // Hide reset form when switching tabs
+            resetForm.classList.remove('active');
+        });
+    });
+
+    // Fixed forgot password functionality
+    if (showResetForm) {
+        showResetForm.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').classList.remove('active');
+            resetForm.classList.add('active');
+            // Reset the form fields when showing
+            document.getElementById('resetEmail').value = '';
+            document.getElementById('resetCode').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+        });
+    }
+
+    if (cancelReset) {
+        cancelReset.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetForm.classList.remove('active');
+            document.getElementById('loginForm').classList.add('active');
+        });
+    }
+
+    // Fixed admin reset password functionality
+    if (showAdminResetForm) {
+        showAdminResetForm.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#adminAuthSection .auth-form').classList.remove('active');
+            adminResetForm.classList.add('active');
+            // Reset the form fields when showing
+            document.getElementById('adminResetEmail').value = '';
+            document.getElementById('adminResetCode').value = '';
+            document.getElementById('adminNewPassword').value = '';
+            document.getElementById('adminConfirmNewPassword').value = '';
+        });
+    }
+
+    if (cancelAdminReset) {
+        cancelAdminReset.addEventListener('click', function(e) {
+            e.preventDefault();
+            adminResetForm.classList.remove('active');
+            document.querySelector('#adminAuthSection .auth-form').classList.add('active');
+        });
+    }
+
+    // Handle role selection for signup
+    if (signupRole) {
+        signupRole.addEventListener('change', function() {
+            employeeCodeContainer.style.display = this.value === 'employee' ? 'block' : 'none';
+            if (this.value !== 'employee') {
+                document.getElementById('employeeCode').value = '';
+            }
+        });
+    }
+
+    // Handle role selection for login and reset
+    if (loginRole) {
+        loginRole.addEventListener('change', function() {
+            if (resetCodeField) {
+                resetCodeField.style.display = this.value === 'employee' ? 'block' : 'none';
+                if (this.value !== 'employee') {
+                    document.getElementById('resetCode').value = '';
                 }
             }
-            
-            // Update password in MongoDB (in production, use proper password hashing)
-            await mongoDB.usersCollection.updateOne(
-                { email },
-                { $set: { password: newPassword } }
-            );
-            
-            showStatusMessage('Password reset successfully!', 'success');
-            
-            // Reset form and show login
-            resetForm.classList.remove('active');
-            userLoginForm.style.display = 'block';
-            passwordResetForm.reset();
-        } else {
-            showStatusMessage('Email not found!', 'error');
-        }
-    } catch (error) {
-        console.error('Password reset error:', error);
-        showStatusMessage('Failed to reset password. Please try again.', 'error');
-    }
-};
-
-/**
- * Handle admin password reset form submission
- * @param {Event} e - Form submission event
- */
-const handleAdminPasswordReset = async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('adminResetEmail').value.trim().toLowerCase();
-    const code = document.getElementById('adminResetCode').value;
-    const newPassword = document.getElementById('adminNewPassword').value;
-    const confirmPassword = document.getElementById('adminConfirmNewPassword').value;
-    
-    if (newPassword !== confirmPassword) {
-        showStatusMessage('Passwords do not match!', 'error');
-        return;
-    }
-    
-    if (code !== 'ADMIN123') {
-        showStatusMessage('Invalid security code!', 'error');
-        return;
-    }
-    
-    try {
-        // Check if admin exists
-        const admin = await mongoDB.usersCollection.findOne({ 
-            email, 
-            role: 'admin' 
         });
-        
-        if (admin) {
-            // Update admin password in MongoDB (in production, use proper password hashing)
-            await mongoDB.usersCollection.updateOne(
-                { email, role: 'admin' },
-                { $set: { password: newPassword } }
-            );
+    }
+
+    // Toggle password visibility
+    document.querySelectorAll('.password-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="far fa-eye"></i>' : '<i class="far fa-eye-slash"></i>';
+        });
+    });
+
+    // Handle password reset form submission
+    const passwordResetForm = document.getElementById('passwordResetForm');
+    if (passwordResetForm) {
+        passwordResetForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
+            const email = document.getElementById('resetEmail').value;
+            const code = document.getElementById('resetCode').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (newPassword !== confirmPassword) {
+                showStatusMessage('Passwords do not match', 'error');
+                return;
+            }
+            
+            // Here you would typically send the data to your server
+            console.log('Password reset request:', { email, code, newPassword });
+            
+            // Show success message
+            showStatusMessage('Password reset successfully! You can now login with your new password.', 'success');
+            
+            // Reset form and go back to login
+            passwordResetForm.reset();
+            resetForm.classList.remove('active');
+            document.getElementById('loginForm').classList.add('active');
+        });
+    }
+
+    // Handle admin password reset form submission
+    const adminPasswordResetForm = document.getElementById('adminPasswordResetForm');
+    if (adminPasswordResetForm) {
+        adminPasswordResetForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('adminResetEmail').value;
+            const code = document.getElementById('adminResetCode').value;
+            const newPassword = document.getElementById('adminNewPassword').value;
+            const confirmPassword = document.getElementById('adminConfirmNewPassword').value;
+            
+            if (newPassword !== confirmPassword) {
+                showStatusMessage('Passwords do not match', 'error');
+                return;
+            }
+            
+            // Here you would typically send the data to your server
+            console.log('Admin password reset request:', { email, code, newPassword });
+            
+            // Show success message
             showStatusMessage('Admin password reset successfully!', 'success');
             
-            // Reset form and show login
-            adminResetForm.classList.remove('active');
-            adminLoginForm.style.display = 'block';
+            // Reset form and go back to login
             adminPasswordResetForm.reset();
-        } else {
-            showStatusMessage('Admin email not found!', 'error');
-        }
-    } catch (error) {
-        console.error('Admin password reset error:', error);
-        showStatusMessage('Failed to reset admin password. Please try again.', 'error');
+            adminResetForm.classList.remove('active');
+            document.querySelector('#adminAuthSection .auth-form').classList.add('active');
+        });
     }
-};
+    document.querySelectorAll('.password-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="far fa-eye"></i>' : '<i class="far fa-eye-slash"></i>';
+        });
+    });
 
-/**
- * Handle contact inquiry form submission
- * @param {Event} e - Form submission event
- */
-const handleInquirySubmit = async (e) => {
-    e.preventDefault();
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+        backToTopBtn.classList.toggle('active', window.scrollY > 300);
+    });
     
-    const formData = new FormData(inquiryForm);
-    const data = Object.fromEntries(formData.entries());
-    
-    try {
-        // Save inquiry to MongoDB
-        await mongoDB.inquiriesCollection.insertOne({
-            ...data,
-            createdAt: new Date().toISOString(),
-            status: 'new'
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Quick contact functionality
+    const quickContactBtn = document.querySelector('.quick-contact-btn');
+    const quickContactOptions = document.querySelector('.quick-contact-options');
+    if (quickContactBtn && quickContactOptions) {
+        quickContactBtn.addEventListener('click', () => {
+            quickContactOptions.classList.toggle('visible');
         });
         
+<<<<<<< HEAD
         showStatusMessage('Inquiry submitted successfully! We will contact you soon.', 'success');
         inquiryForm.reset();
     } catch (error) {
@@ -961,3 +696,92 @@ const toggleQuickContact = () => {
 
 // Apply dark mode preference on page load
 applyDarkModePreference();
+=======
+        document.addEventListener('click', (e) => {
+            if (!quickContactBtn.contains(e.target) && !quickContactOptions.contains(e.target)) {
+                quickContactOptions.classList.remove('visible');
+            }
+        });
+    }
+
+    // Animate statistics counters
+    const statNumbers = document.querySelectorAll('.stat-number');
+    function animateCounters() {
+        statNumbers.forEach(stat => {
+            if (!stat.dataset.animated) {
+                stat.dataset.animated = 'true';
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const counter = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(counter);
+                        stat.textContent = target + '+';
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 16);
+            }
+        });
+    }
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('stat-number')) animateCounters();
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Status message functionality
+    function showStatusMessage(message, type) {
+        const statusElement = document.getElementById('statusMessage');
+        if (!statusElement) return;
+        
+        statusElement.textContent = message;
+        statusElement.className = `status-message ${type}`;
+        
+        if (statusElement.timeout) clearTimeout(statusElement.timeout);
+        
+        statusElement.timeout = setTimeout(() => {
+            statusElement.classList.add('fade-out');
+            setTimeout(() => statusElement.className = 'status-message', 500);
+        }, 5000);
+    }
+
+    // Check authentication status
+    function checkAuthStatus() {
+        const authToken = localStorage.getItem('authToken');
+        const adminToken = localStorage.getItem('adminToken');
+        
+        if (authToken && loginBtn) {
+            loginBtn.textContent = 'My Account';
+            loginBtn.href = '/account';
+            loginBtn.classList.remove('login-btn');
+        }
+        
+        if (adminToken && adminBtn) {
+            adminBtn.textContent = 'Dashboard';
+            adminBtn.href = '/admin/dashboard';
+            adminBtn.classList.remove('admin-btn');
+        }
+    }
+
+    // Initialize AOS animations
+    AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
+    
+    // Load initial data
+    loadProducts();
+    checkAuthStatus();
+});
+>>>>>>> f7ed78f (    enhanced the ui)
