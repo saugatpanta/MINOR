@@ -1198,7 +1198,8 @@ body[data-theme="light"]::before {
 }
 
 .auth-form input,
-.auth-form select {
+.auth-form select
+{
   width: 100%;
   padding: 1.2rem 1.6rem;
   background: rgba(0, 206, 201, 0.05);
@@ -1276,6 +1277,28 @@ body[data-theme="light"]::before {
   display: block;
   position: relative;
 }
+
+.reset-form input,
+.reset-form select
+{
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  background: rgba(0, 206, 201, 0.05);  
+  border: 1px solid rgba(0, 206, 201, 0.2);
+  border-radius: 8px;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.reset-form input:focus,
+.reset-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 206, 201, 0.15);
+  background: rgba(0, 206, 201, 0.1);
+}
+
 
 /* Status Message */
 .status-message {
