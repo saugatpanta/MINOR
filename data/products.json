@@ -45,7 +45,7 @@
         "name": "Curtain Wall System",
         "category": "Facades",
         "price": 4200,
-        "image": "assets/images/products/facade1.jpg",
+        "image": "assets/images/products/facade1.jpeg",
         "shortDescription": "Structural glazing system for modern commercial buildings",
         "description": "Our unitized curtain wall system offers exceptional thermal performance and weather resistance for high-rise buildings. The prefabricated units allow for faster installation while maintaining precise tolerances for a flawless facade appearance.",
         "specs": [
@@ -103,7 +103,7 @@
         "name": "Sliding Patio Door",
         "category": "Doors",
         "price": 22500,
-        "image": "assets/images/products/door2.jpg",
+        "image": "assets/images/products/door2.jpeg",
         "shortDescription": "Smooth sliding door system for residential and commercial use",
         "description": "Our sliding patio doors feature a low-profile threshold for easy access and excellent thermal performance. The heavy-duty rollers can support large glass panels while maintaining effortless operation.",
         "specs": [
@@ -122,7 +122,7 @@
         "name": "Sunscreen Louver Facade",
         "category": "Facades",
         "price": 3800,
-        "image": "assets/images/products/facade2.jpg",
+        "image": "assets/images/products/facade2.avif",
         "shortDescription": "Architectural aluminum louvers for solar control",
         "description": "Our sunscreen louver system reduces solar heat gain while maintaining outward visibility and natural ventilation. The adjustable blades can be fixed or motorized to dynamically control sunlight penetration throughout the day.",
         "badge": "Energy Efficient",
@@ -142,7 +142,7 @@
         "name": "Staircase Railing System",
         "category": "Railings",
         "price": 9800,
-        "image": "assets/images/products/railing2.jpg",
+        "image": "assets/images/products/railing2.jpeg",
         "shortDescription": "Modern aluminum railing for interior and exterior staircases",
         "description": "Our staircase railing system combines aluminum posts with glass or metal infill panels to create safe and stylish stair railings. The system is designed for easy installation and can be customized to match any architectural style.",
         "specs": [
@@ -161,7 +161,7 @@
         "name": "Fixed Picture Window",
         "category": "Windows",
         "price": 9500,
-        "image": "assets/images/products/window3.jpg",
+        "image": "assets/images/products/window3.jpeg",
         "shortDescription": "Non-operable window for maximum glass area and views",
         "description": "Our fixed picture windows provide unobstructed views with a slim profile frame. The structural silicone glazing option creates a nearly frameless appearance for modern architectural designs.",
         "specs": [
@@ -180,7 +180,7 @@
         "name": "Entrance Door System",
         "category": "Doors",
         "price": 32500,
-        "image": "assets/images/products/door3.jpg",
+        "image": "assets/images/products/door3.jpeg",
         "shortDescription": "Grand entrance door with high security features",
         "description": "Make a statement with our premium aluminum entrance doors featuring multi-point locking systems and optional smart access control. The thermally broken frames ensure energy efficiency while providing a grand entrance to any building.",
         "badge": "Premium",
@@ -204,7 +204,7 @@
         "year": "2022",
         "area": "45,000 sq.ft",
         "images": [
-            "assets/images/projects/bank1.jpg",
+            "assets/images/projects/bank1.jpeg",
             "assets/images/projects/bank2.jpg",
             "assets/images/projects/bank3.jpg"
         ],

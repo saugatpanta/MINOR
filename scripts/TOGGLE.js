@@ -59,4 +59,3 @@ document.querySelectorAll('.navbar a').forEach(link => {
     }
   });
 });
-2bef0c83dd50b808fc83f0ea958859fec2b980ab
