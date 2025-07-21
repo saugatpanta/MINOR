@@ -220,7 +220,7 @@ body[data-theme="light"]::before {
   width: 100%; 
   z-index: 999;
   background: var(--bg-dark-secondary);
-  padding: 1.8rem 0;
+  padding: .3rem 0;
   transition: var(--transition-slow);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
