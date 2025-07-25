@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Our Featured Projects</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Discover how our aluminium solutions have transformed buildings across the region</p>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-filters">
+                    <div class="filter-group">
+                        <label for="project-type">Project Type:</label>
+                        <select id="project-type">
+                            <option value="all">All Types</option>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="hospitality">Hospitality</option>
+                            <option value="institutional">Institutional</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="project-location">Location:</label>
+                        <select id="project-location">
+                            <option value="all">All Locations</option>
+                            <option value="lalitpur">Lalitpur</option>
+                            <option value="bhaktapur">Bhaktapur</option>
+                            <option value="pokhara">Pokhara</option>
+                            <option value="kathmandu">Kathmandu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="projectsContainer">
+                    <!-- Projects will be loaded from projects.json via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="project-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Project Showcase</h2>
+                    <p>Detailed look at some of our most prestigious projects</p>
+                </div>
+                <div class="showcase-container">
+                    <div class="showcase-card" data-aos="fade-up" id="skyline-complex">
+                        <div class="showcase-images">
+                            <div class="main-image">
+                                <img src="https://www.shutterstock.com/image-photo/aerial-view-city-skyline-modern-600nw-2236005753.jpg" alt="Skyline Commercial Complex">
+                            </div>
+                            <div class="thumbnail-container">
+                                <img src="https://www.shutterstock.com/image-illustration/modern-city-beautiful-sunrise-view-600nw-2268792295.jpg" alt="Skyline Commercial Complex" class="thumbnail">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ558xU5cI4k44p1j8ZSSRfvbAZB5U8EODfg&s" alt="Skyline Commercial Complex" class="thumbnail">
+                                <img src="https://thumbs.dreamstime.com/b/skyline-santiago-de-chile-costanera-center-business-commercial-complex-includes-six-floor-shopping-mall-163233964.jpg" alt="Skyline Commercial Complex" class="thumbnail">
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Skyline Commercial Complex</h3>
+                            <div class="project-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+                                <span><i class="fas fa-calendar-alt"></i> Completed: 2023</span>
+                                <span><i class="fas fa-building"></i> Commercial</span>
+                            </div>
+                            <p>The Skyline Commercial Complex features our premium aluminium curtain wall system spanning across 25 floors. The project required precise engineering to accommodate the building's unique curvature while maintaining energy efficiency.</p>
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Unitized curtain wall system with thermal breaks</li>
+                                <li>Custom anodized finish for uniform appearance</li>
+                                <li>High-performance glazing for energy efficiency</li>
+                                <li>Automated sun shading system</li>
+                            </ul>
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <h5>Area Covered</h5>
+                                    <p>25,000 sq.ft</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h5>Duration</h5>
+                                    <p>8 months</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h5>Materials Used</h5>
+                                    <p>High-grade aluminium alloy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-cta">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>Have a Project in Mind?</h2>
+                    <p>Our team of experts can help you select the perfect aluminium solutions for your next project.</p>
+                    <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Pashupati Aluminium">
+                        <span>Pashupati Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminium solutions for residential and commercial applications since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gujeshwori, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 9801123070</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Sunday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    // Initialize AOS globally
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-quad',
+        once: true,
+        offset: 100
+    });
+    </script>
+</body>
+</html>

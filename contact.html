@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Contact Us</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Get in touch with our team for inquiries, quotes, or support</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info" data-aos="fade-up">
+                        <h2>Contact Information</h2>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Head Office</h3>
+                                <p>123 Industrial Area, Mumbai, Maharashtra 400001, India</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Phone</h3>
+                                <p>+91 1234567890</p>
+                                <p>+91 9876543210</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <p>info@pashupatialuminium.com</p>
+                                <p>sales@pashupatialuminium.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form" data-aos="fade-up" data-aos-delay="100">
+                        <h2>Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="quote">Request a Quote</option>
+                                    <option value="product">Product Information</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container" data-aos="fade-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.456030828568!2d85.36568331506203!3d27.71119628279315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bcdb4d3e689%3A0xac5beaad4f023444!2sPashupati%20Aluminium%20and%20Glass%20Center!5e0!3m2!1sen!2snp!4v1620000000000!5m2!1sen!2snp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="branches-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Branches</h2>
+                    <p>Visit us at any of our locations across India</p>
+                </div>
+                <div class="branches-grid">
+                    <div class="branch-card" data-aos="fade-up">
+                        <div class="branch-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9IZ5GmLyfSNDMxGH9uwkKt3JbTMSF_zD3sg&s" alt="Lalitpur Branch">
+                        </div>
+                        <div class="branch-info">
+                            <h3>Lalipur</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Area, Lalitpur, Sitapaila 44600</p>
+                            <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                            <p><i class="fas fa-envelope"></i> lalitpur@pashupatialuminium.com</p>
+                        </div>
+                    </div>
+                    <div class="branch-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="branch-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcErAy_QclxJw5NcWij7PEDARBWNWPjYQVbA&s" alt="Bhaktapur Branch">
+                        </div>
+                        <div class="branch-info">
+                            <h3>Bhaktapur</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 456 Business Park, Bhaktapur 44600</p>
+                            <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                            <p><i class="fas fa-envelope"></i> bhaktapur@pashupatialuminium.com</p>
+                        </div>
+                    </div>
+                    <div class="branch-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="branch-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5lQ9pXRiOop2MgYFeFzyXJvPVki0q0NK_A&s" alt="Pokhara Branch">
+                        </div>
+                        <div class="branch-info">
+                            <h3>Pokhara</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 789 Tech Zone, Pokhara, Gandaki 33700</p>
+                            <p><i class="fas fa-phone"></i> +91 8765432109</p>
+                            <p><i class="fas fa-envelope"></i> pokhara@pashupatialuminium.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-cta">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>Need Immediate Assistance?</h2>
+                    <p>Call our customer support team for quick answers to your questions.</p>
+                    <a href="tel:+911234567890" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now: +91 1234567890
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Pashupati Aluminium">
+                        <span>Pashupati Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminium solutions for residential and commercial applications since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gujeshwori, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 9801123070</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Sunday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+</html>
