@@ -1,0 +1,114 @@
+{
+    "projects": [
+        {
+        "id": 1,
+        "title": "Luxury Residential Tower",
+        "description": "Complete aluminium fenestration solution for a 40-story luxury residential tower in Mumbai.",
+        "location": "Mumbai, India",
+        "year": 2023,
+        "scope": ["Curtain walls", "Sliding windows", "Balcony railings", "Entrance canopy"],
+        "images": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnB3Da_yJ6Uct2TwM8DBb7YNcxXaepbvhUQg&s"],
+        "client": "Premium Developers Ltd.",
+        "value": "₹4.2 Crore"
+        },
+        {
+        "id": 2,
+        "title": "Corporate Office Complex",
+        "description": "Modern aluminium facade and interior partitioning for a multinational corporate office.",
+        "location": "Bangalore, India",
+        "year": 2022,
+        "scope": ["Unitized curtain wall", "Automatic sliding doors", "Office partitions", "Skylights"],
+        "images": ["https://media.istockphoto.com/id/479842074/photo/empty-road-at-building-exterior.jpg?s=612x612&w=0&k=20&c=SbyfZGN0i2O_QPLCdBcu9vhuzbQvTz4bGEn-lIzrN0E=", "assets/images/projects/office2.jpg"],
+        "client": "Tech Solutions Inc.",
+        "value": "₹3.8 Crore"
+        },
+        {
+        "id": 3,
+        "title": "Five-Star Hotel Renovation",
+        "description": "Complete renovation of fenestration systems for a heritage five-star hotel.",
+        "location": "Delhi, India",
+        "year": 2021,
+        "scope": ["Heritage windows", "French doors", "Balcony systems", "Atrium skylight"],
+        "images": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQknRpJKp7uD7I7Emhx3acZ7HygMom9w_9ryQ&s", "assets/images/projects/hotel2.jpg"],
+        "client": "Heritage Hotels Group",
+        "value": "₹2.9 Crore"
+        },
+        {
+        "id": 4,
+        "title": "Shopping Mall Facade",
+        "description": "High-performance curtain wall system for a premium shopping destination.",
+        "location": "Hyderabad, India",
+        "year": 2023,
+        "scope": ["Structural glazing", "Entrance doors", "Canopies", "Louvers"],
+        "images": ["https://mir-s3-cdn-cf.behance.net/projects/404/71122a62414297.Y3JvcCw1ODksNDYxLDY1Niw4NjE.jpg", "assets/images/projects/mall2.jpg"],
+        "client": "Urban Retail Spaces",
+        "value": "₹5.1 Crore"
+        },
+        {
+        "id": 5,
+        "title": "Airport Terminal Expansion",
+        "description": "Specialized aluminium systems for airport terminal expansion project.",
+        "location": "Chennai, India",
+        "year": 2020,
+        "scope": ["High-wind resistant systems", "Security doors", "Smoke vents", "Skywalks"],
+        "images": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzBGCZ4NafRjHo1esXfNn_T-RSileFMxf0CQ&s", "assets/images/projects/airport2.jpg"],
+        "client": "Airports Authority of India",
+        "value": "₹8.7 Crore"
+        },
+        {
+        "id": 6,
+        "title": "Educational Institute Campus",
+        "description": "Complete fenestration package for a new university campus building.",
+        "location": "Pune, India",
+        "year": 2022,
+        "scope": ["Classroom windows", "Laboratory partitions", "Atrium roofing", "Operable louvers"],
+        "images": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9saJtk5JkL87Jw2Q-hz94CGbWWun2ulNFA&s", "assets/images/projects/education2.jpg"],
+        "client": "National University",
+        "value": "₹3.2 Crore"
+        },
+        {
+        "id": 7,
+        "title": "Hospital Renovation",
+        "description": "Specialized aluminium systems for hospital renovation with infection control features.",
+        "location": "Kolkata, India",
+        "year": 2021,
+        "scope": ["Antimicrobial handles", "Sealed windows", "Cleanroom partitions", "Smoke vents"],
+        "images": ["https://estruc.com/wp-content/uploads/2018/06/Hospital_Renovation_8.jpg", "assets/images/projects/hospital2.jpg"],
+        "client": "Medicare Hospitals",
+        "value": "₹2.7 Crore"
+        },
+        {
+        "id": 8,
+        "title": "Luxury Villas Project",
+        "description": "Premium aluminium fenestration for gated community luxury villas.",
+        "location": "Goa, India",
+        "year": 2023,
+        "scope": ["Sliding doors", "Folding windows", "Pergolas", "Balcony systems"],
+        "images": ["https://www.skylinebuilders.com/public/uploads/media/Ranch-Web-Banner-016397f941a9ca163be709d7b681.webp", "assets/images/projects/villa2.jpg"],
+        "client": "Elite Developers",
+        "value": "₹4.5 Crore"
+        },
+        {
+        "id": 9,
+        "title": "IT Park Phase 2",
+        "description": "Commercial office facade systems for IT park expansion.",
+        "location": "Gurgaon, India",
+        "year": 2022,
+        "scope": ["Unitized curtain walls", "Automatic doors", "Sun shades", "Skybridges"],
+        "images": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQICiZvqQLx7MbyQACjmsyoX9WDEz6usPiUoA&s", "assets/images/projects/itpark2.jpg"],
+        "client": "Tech City Developers",
+        "value": "₹6.3 Crore"
+        },
+        {
+        "id": 10,
+        "title": "Government Secretariat",
+        "description": "High-security aluminium systems for government building renovation.",
+        "location": "Delhi, India",
+        "year": 2019,
+        "scope": ["Bullet-resistant windows", "Security doors", "Blast-resistant facades", "Special partitions"],
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/b/bd/Kerala_Government_Secretariat.jpg", "assets/images/projects/govt2.jpg"],
+        "client": "Public Works Department",
+        "value": "₹7.8 Crore"
+        }
+    ]
+}

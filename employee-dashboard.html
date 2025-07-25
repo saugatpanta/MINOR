@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-profile">
+                <div class="profile-image">
+                    <img src="assets/images/team/employee1.jpg" alt="Employee">
+                </div>
+                <div class="profile-info">
+                    <h3>Vikram Patel</h3>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="employee-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-tasks"></i>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>Clients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-globe"></i> View Website
+                </a>
+                <a href="login.html" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <header class="dashboard-header">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <div class="user-avatar">
+                            <img src="assets/images/team/employee1.jpg" alt="Employee">
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <h1>Employee Dashboard</h1>
+                        <p>Welcome back, Vikram Patel</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card" data-aos="fade-up">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Projects</h3>
+                                <p>7</p>
+                                <span class="stat-change positive">+2 from last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Pending Tasks</h3>
+                                <p>14</p>
+                                <span class="stat-change negative">+3 from yesterday</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Today's Appointments</h3>
+                                <p>3</p>
+                                <span class="stat-change neutral">No change</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Clients</h3>
+                                <p>12</p>
+                                <span class="stat-change positive">+1 from last week</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card" data-aos="fade-up">
+                            <div class="chart-header">
+                                <h3>Project Progress</h3>
+                                <div class="chart-actions">
+                                    <select>
+                                        <option>This Year</option>
+                                        <option>Last Year</option>
+                                        <option>Last 6 Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="projectProgressChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="chart-header">
+                                <h3>Task Completion</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="taskCompletionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tables-grid">
+                        <div class="table-card" data-aos="fade-up">
+                            <div class="table-header">
+                                <h3>Active Projects</h3>
+                                <a href="#" class="btn btn-outline">View All</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Project ID</th>
+                                            <th>Name</th>
+                                            <th>Client</th>
+                                            <th>Start Date</th>
+                                            <th>Status</th>
+                                            <th>Progress</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#PR-2056</td>
+                                            <td>Residential Villa</td>
+                                            <td>Rajesh Sharma</td>
+                                            <td>10 Jun 2025</td>
+                                            <td><span class="status-badge in-progress">In Progress</span></td>
+                                            <td>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 65%"></div>
+                                                </div>
+                                                <span>65%</span>
+                                            </td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PR-2055</td>
+                                            <td>Office Complex</td>
+                                            <td>Urban Developers</td>
+                                            <td>25 May 2025</td>
+                                            <td><span class="status-badge in-progress">In Progress</span></td>
+                                            <td>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 45%"></div>
+                                                </div>
+                                                <span>45%</span>
+                                            </td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PR-2054</td>
+                                            <td>Hotel Renovation</td>
+                                            <td>Grand Hotels</td>
+                                            <td>15 Apr 2025</td>
+                                            <td><span class="status-badge on-hold">On Hold</span></td>
+                                            <td>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 30%"></div>
+                                                </div>
+                                                <span>30%</span>
+                                            </td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="table-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="table-header">
+                                <h3>Upcoming Tasks</h3>
+                                <a href="#" class="btn btn-outline">View All</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Task ID</th>
+                                            <th>Description</th>
+                                            <th>Project</th>
+                                            <th>Due Date</th>
+                                            <th>Priority</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#TK-3056</td>
+                                            <td>Finalize window measurements</td>
+                                            <td>Residential Villa</td>
+                                            <td>20 Jul 2025</td>
+                                            <td><span class="priority-badge high">High</span></td>
+                                            <td><span class="status-badge pending">Pending</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#TK-3055</td>
+                                            <td>Coordinate facade installation</td>
+                                            <td>Office Complex</td>
+                                            <td>18 Jul 2025</td>
+                                            <td><span class="priority-badge medium">Medium</span></td>
+                                            <td><span class="status-badge in-progress">In Progress</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#TK-3054</td>
+                                            <td>Client meeting for approval</td>
+                                            <td>Hotel Renovation</td>
+                                            <td>17 Jul 2025</td>
+                                            <td><span class="priority-badge low">Low</span></td>
+                                            <td><span class="status-badge pending">Pending</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-section">
+                        <div class="section-header">
+                            <h3>Schedule Calendar</h3>
+                            <div class="calendar-actions">
+                                <button class="btn btn-outline">Today</button>
+                                <div class="calendar-nav">
+                                    <button><i class="fas fa-chevron-left"></i></button>
+                                    <span>July 2025</span>
+                                    <button><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <select>
+                                    <option>Month</option>
+                                    <option>Week</option>
+                                    <option>Day</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="calendar-container" data-aos="fade-up">
+                            <div class="calendar-header">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-body">
+                                <!-- Calendar days will be populated via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

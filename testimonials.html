@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Client Testimonials</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Hear what our valued clients say about our products and services</p>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="testimonials-grid" id="testimonialsContainer">
+                    <!-- Testimonials will be loaded from testimonials.json via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="video-testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Video Testimonials</h2>
+                    <p>See and hear directly from our satisfied clients</p>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card" data-aos="fade-up">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/watch?v=Jw7s42Op2ao&ab_channel=SkieVideo" title="Testimonial Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Commercial Project Client</h3>
+                            <p>Rajesh Sharma shares his experience working with Pashupati Aluminium on a large commercial complex.</p>
+                        </div>
+                    </div>
+                    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/watch?v=KNG-OqNe5PU&ab_channel=OmadaHealth" title="Testimonial Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Residential Homeowner</h3>
+                            <p>Priya Patel discusses how Pashupati Aluminium transformed her home with premium windows and doors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-studies">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Case Studies</h2>
+                    <p>Detailed success stories of our projects</p>
+                </div>
+                <div class="case-studies-grid">
+                    <div class="case-study-card" data-aos="fade-up">
+                        <div class="case-study-image">
+                            <img src="https://skylinearchitects.com.np/file-manager/photos/1/project-category/commercial/commercial/sajan%20sharma%20v3_1%20-%20Photo_2%20-%20Photo.jpg" alt="Case Study">
+                        </div>
+                        <div class="case-study-content">
+                            <h3>Skyline Commercial Complex</h3>
+                            <div class="case-study-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+                                <span><i class="fas fa-building"></i> Commercial</span>
+                            </div>
+                            <p>How our aluminium facade system helped reduce energy costs by 30% while maintaining aesthetic appeal for this prestigious commercial development.</p>
+                            <a href="#" class="btn btn-outline">Read Full Case Study</a>
+                        </div>
+                    </div>
+                    <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="case-study-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwbbJh1D0MJRbbqOduc8fZRs_qVfeDxfcc8w&s" alt="Case Study">
+                        </div>
+                        <div class="case-study-content">
+                            <h3>Luxury Residential Tower</h3>
+                            <div class="case-study-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+                                <span><i class="fas fa-home"></i> Residential</span>
+                            </div>
+                            <p>Our custom aluminium windows and doors provided the perfect combination of security, energy efficiency, and design for this high-end residential project.</p>
+                            <a href="#" class="btn btn-outline">Read Full Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-cta">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>Become Our Next Success Story</h2>
+                    <p>Let us help you with your next project using our premium aluminium solutions.</p>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Pashupati Aluminium">
+                        <span>Pashupati Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminium solutions for residential and commercial applications since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gujeshwori, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 9801123070</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Sunday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS globally
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-quad',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

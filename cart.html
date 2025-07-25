@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Your Shopping Cart</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Review your selected products before checkout</p>
+            </div>
+        </section>
+
+        <section class="cart-section">
+            <div class="container">
+                <div class="cart-container">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be loaded from localStorage via JavaScript -->
+                        <div class="empty-cart" id="emptyCart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Your cart is empty</h3>
+                            <p>Browse our products and add items to your cart</p>
+                            <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                        </div>
+                    </div>
+                    <div class="cart-summary" data-aos="fade-left">
+                        <h3>Order Summary</h3>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">₹0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shipping">Calculated at checkout</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span id="tax">Calculated at checkout</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total">
+                                <span>Estimated Total</span>
+                                <span id="total">₹0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>Proceed to Checkout</button>
+                        <div class="payment-methods">
+                            <img src="assets/images/payment/visa.png" alt="Visa">
+                            <img src="assets/images/payment/mastercard.png" alt="Mastercard">
+                            <img src="assets/images/payment/amex.png" alt="American Express">
+                            <img src="assets/images/payment/paypal.png" alt="PayPal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommendations-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>You Might Also Like</h2>
+                    <p>Complementary products to complete your project</p>
+                </div>
+                <div class="products-slider">
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="assets/images/products/product4.jpg" alt="Aluminium Railings">
+                            <div class="product-overlay">
+                                <button class="btn btn-outline add-to-cart" data-id="11">Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3>Aluminium Railings</h3>
+                        <p>Modern, durable railings for balconies and staircases.</p>
+                        <div class="product-price">₹2,500/meter</div>
+                    </div>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="product-image">
+                            <img src="https://s3.ap-south-1.amazonaws.com/cdn.sajilosewa.com/uploads/service/6671ab78b16b37bc20af2986.webp" alt="Aluminium Partitions">
+                            <div class="product-overlay">
+                                <button class="btn btn-outline add-to-cart" data-id="12">Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3>Aluminium Partitions</h3>
+                        <p>Space dividers with glass panels for offices and homes.</p>
+                        <div class="product-price">₹1,800/sq.ft</div>
+                    </div>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTsHyXQcPPcyjRMmVywSkZFuU_J1is25nGbQ&s" alt="Aluminium Louvers">
+                            <div class="product-overlay">
+                                <button class="btn btn-outline add-to-cart" data-id="13">Add to Cart</button>
+                            </div>
+                        </div>
+                        <h3>Aluminium Louvers</h3>
+                        <p>Ventilation solutions with adjustable blades.</p>
+                        <div class="product-price">₹3,200/set</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Pashupati Aluminium">
+                        <span>Pashupati Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminium solutions for residential and commercial applications since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gujeshwori, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 9801123070</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Sunday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

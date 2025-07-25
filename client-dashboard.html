@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-profile">
+                <div class="profile-image">
+                    <img src="assets/images/team/client1.jpg" alt="Client">
+                </div>
+                <div class="profile-info">
+                    <h3>Rajesh Sharma</h3>
+                    <p>Client</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="client-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-globe"></i> View Website
+                </a>
+                <a href="login.html" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <header class="dashboard-header">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">2</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <div class="user-avatar">
+                            <img src="assets/images/team/client1.jpg" alt="Client">
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <h1>Client Dashboard</h1>
+                        <p>Welcome back, Rajesh Sharma</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card" data-aos="fade-up">
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Orders</h3>
+                                <p>12</p>
+                                <span class="stat-change positive">+2 from last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Spent</h3>
+                                <p>₹1,245,000</p>
+                                <span class="stat-change positive">+₹245,000 from last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Projects</h3>
+                                <p>3</p>
+                                <span class="stat-change neutral">No change</span>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Wishlist</h3>
+                                <p>5 items</p>
+                                <span class="stat-change positive">+1 from last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card" data-aos="fade-up">
+                            <div class="chart-header">
+                                <h3>Order History</h3>
+                                <div class="chart-actions">
+                                    <select>
+                                        <option>This Year</option>
+                                        <option>Last Year</option>
+                                        <option>Last 6 Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="orderHistoryChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="chart-header">
+                                <h3>Project Status</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="projectStatusChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tables-grid">
+                        <div class="table-card" data-aos="fade-up">
+                            <div class="table-header">
+                                <h3>Recent Orders</h3>
+                                <a href="#" class="btn btn-outline">View All</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#PA-1001</td>
+                                            <td>15 Jul 2025</td>
+                                            <td>₹125,000</td>
+                                            <td><span class="status-badge completed">Completed</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PA-1002</td>
+                                            <td>14 Jul 2025</td>
+                                            <td>₹89,500</td>
+                                            <td><span class="status-badge processing">Processing</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PA-1003</td>
+                                            <td>13 Jul 2025</td>
+                                            <td>₹210,000</td>
+                                            <td><span class="status-badge pending">Pending</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="table-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="table-header">
+                                <h3>Active Projects</h3>
+                                <a href="#" class="btn btn-outline">View All</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Project ID</th>
+                                            <th>Name</th>
+                                            <th>Start Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#PR-2056</td>
+                                            <td>Residential Villa</td>
+                                            <td>10 Jun 2025</td>
+                                            <td><span class="status-badge in-progress">In Progress</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PR-2055</td>
+                                            <td>Office Complex</td>
+                                            <td>25 May 2025</td>
+                                            <td><span class="status-badge in-progress">In Progress</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#PR-2054</td>
+                                            <td>Hotel Renovation</td>
+                                            <td>15 Apr 2025</td>
+                                            <td><span class="status-badge on-hold">On Hold</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-outline">View</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="actions-grid">
+                            <a href="products.html" class="action-card" data-aos="fade-up">
+                                <div class="action-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <h4>Browse Products</h4>
+                                <p>Explore our latest aluminium solutions</p>
+                            </a>
+                            <a href="contact.html" class="action-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="action-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h4>Contact Support</h4>
+                                <p>Get help with your projects</p>
+                            </a>
+                            <a href="#" class="action-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="action-icon">
+                                    <i class="fas fa-file-invoice"></i>
+                                </div>
+                                <h4>View Invoices</h4>
+                                <p>Access your payment history</p>
+                            </a>
+                            <a href="#" class="action-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="action-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <h4>Help Center</h4>
+                                <p>Find answers to common questions</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

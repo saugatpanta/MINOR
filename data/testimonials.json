@@ -1,0 +1,59 @@
+{
+    "testimonials": [
+        {
+        "id": 1,
+        "name": "Rajesh Mehta",
+        "position": "CEO, Premium Developers Ltd.",
+        "company": "Premium Developers",
+        "content": "Pashupati Aluminium delivered exceptional quality for our luxury residential project. Their attention to detail and commitment to deadlines was impressive. The aluminium systems have significantly enhanced our property's aesthetics and performance.",
+        "rating": 5,
+        "project": "Luxury Residential Tower",
+        "date": "2023-05-15",
+        "avatar": "https://www.euromoney.com/wp-content/uploads/2024/02/rajesh-mehta-citi-2023-960.jpg"
+        },
+        {
+        "id": 2,
+        "name": "Priya Sharma",
+        "position": "Project Manager",
+        "company": "Tech Solutions Inc.",
+        "content": "Working with Pashupati on our corporate office was a seamless experience. Their technical expertise in curtain wall systems saved us both time and money. The final installation exceeded our expectations in both quality and performance.",
+        "rating": 4.5,
+        "project": "Corporate Office Complex",
+        "date": "2022-11-22",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrUaAUBjNznHabotppkTRToSExcqdaDT8qGQ&s"
+        },
+        {
+        "id": 3,
+        "name": "Vikram Singh",
+        "position": "Director of Operations",
+        "company": "Heritage Hotels Group",
+        "content": "The hotel renovation required sensitive handling of heritage elements while meeting modern performance standards. Pashupati's team demonstrated remarkable craftsmanship and problem-solving skills throughout the project.",
+        "rating": 5,
+        "project": "Five-Star Hotel Renovation",
+        "date": "2021-09-30",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BOTgzMDBjNzItNTBhMC00NTNhLTk3NmUtMzA3MGExMzI3NDEyXkEyXkFqcGc@._V1_.jpg"
+        },
+        {
+        "id": 4,
+        "name": "Ananya Patel",
+        "position": "Chief Architect",
+        "company": "Urban Retail Spaces",
+        "content": "Our shopping mall facade presented complex design challenges that Pashupati Aluminium solved with innovative engineering. Their ability to translate architectural vision into functional reality is truly commendable.",
+        "rating": 4.8,
+        "project": "Shopping Mall Facade",
+        "date": "2023-03-18",
+        "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQHp18dcM5N1qw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1668381029741?e=2147483647&v=beta&t=B05jUnkRhPMd_laKxwXfd8zYEB54pQ1NccwEtQlga6o"
+        },
+        {
+        "id": 5,
+        "name": "Dr. Sanjay Gupta",
+        "position": "Medical Director",
+        "company": "Medicare Hospitals",
+        "content": "The specialized aluminium systems installed in our hospital have significantly improved infection control measures while maintaining aesthetic appeal. Pashupati's understanding of healthcare requirements was evident throughout the project.",
+        "rating": 4.7,
+        "project": "Hospital Renovation",
+        "date": "2021-12-05",
+        "avatar": "https://drsanjaygupta.info/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-18-at-14.01.02_e290768f.jpg"
+        }
+    ]
+}

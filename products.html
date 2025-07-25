@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Pashupati Aluminium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Pashupati Aluminium Logo">
+                    <span>Pashupati Aluminium</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 data-aos="fade-up">Our Premium Aluminium Products</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Innovative solutions for modern architecture and construction</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <div class="products-filters">
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="windows">Windows</option>
+                            <option value="doors">Doors</option>
+                            <option value="facades">Facades</option>
+                            <option value="railings">Railings</option>
+                            <option value="structural">Structural</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-by">Sort By:</label>
+                        <select id="sort-by">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A-Z</option>
+                            <option value="name-desc">Name: Z-A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsContainer">
+                    <!-- Products will be loaded from products.json via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="product-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Product Categories</h2>
+                    <p>Explore our comprehensive range of aluminium solutions</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card" data-aos="fade-up" id="windows">
+                        <div class="category-image">
+                            <img src="assets/images/products/windows.jpg" alt="Aluminium Windows">
+                        </div>
+                        <div class="category-content">
+                            <h3>Aluminium Windows</h3>
+                            <p>Our premium aluminium windows combine energy efficiency with sleek modern designs. Available in various styles including sliding, casement, and tilt-turn.</p>
+                            <ul class="category-features">
+                                <li>Thermal break technology</li>
+                                <li>Custom sizes and colors</li>
+                                <li>Sound insulation</li>
+                                <li>Secure locking systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="100" id="doors">
+                        <div class="category-image">
+                            <img src="assets/images/products/doors.jpg" alt="Aluminium Doors">
+                        </div>
+                        <div class="category-content">
+                            <h3>Aluminium Doors</h3>
+                            <p>Durable and stylish aluminium doors for residential and commercial applications. Our doors offer security, weather resistance, and aesthetic appeal.</p>
+                            <ul class="category-features">
+                                <li>High-security locking systems</li>
+                                <li>Powder-coated finishes</li>
+                                <li>Energy-efficient designs</li>
+                                <li>Customizable configurations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="200" id="facades">
+                        <div class="category-image">
+                            <img src="assets/images/products/facades.jpg" alt="Aluminium Facades">
+                        </div>
+                        <div class="category-content">
+                            <h3>Aluminium Facades</h3>
+                            <p>Transform buildings with our modern aluminium facade systems. Ideal for commercial and high-end residential projects.</p>
+                            <ul class="category-features">
+                                <li>Unitized curtain wall systems</li>
+                                <li>Structural glazing</li>
+                                <li>Custom architectural solutions</li>
+                                <li>Weather-resistant designs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="300" id="railings">
+                        <div class="category-image">
+                            <img src="assets/images/products/railings.png" alt="Aluminium Railings">
+                        </div>
+                        <div class="category-content">
+                            <h3>Aluminium Railings</h3>
+                            <p>Modern, durable railings for balconies, staircases, and terraces. Combines safety with contemporary design.</p>
+                            <ul class="category-features">
+                                <li>Powder-coated finishes</li>
+                                <li>Glass panel options</li>
+                                <li>Custom designs</li>
+                                <li>Low maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-enquiry">
+            <div class="container">
+                <div class="enquiry-content" data-aos="fade-up">
+                    <h2>Need a Custom Solution?</h2>
+                    <p>Our team can design and manufacture aluminium products tailored to your specific requirements.</p>
+                    <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Pashupati Aluminium">
+                        <span>Pashupati Aluminium</span>
+                    </div>
+                    <p>Leading provider of premium aluminium solutions for residential and commercial applications since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gujeshwori, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 9801123070</li>
+                        <li><i class="fas fa-envelope"></i> info@pashupatialuminium.com</li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Sunday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pashupati Aluminium. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    // Initialize AOS globally
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-quad',
+        once: true,
+        offset: 100
+    });
+    </script>
+</body>
+</html>
